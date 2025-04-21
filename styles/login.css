@@ -1,0 +1,71 @@
+body {
+  display: flex;
+  justify-content: center;
+  font-family: roboto, Helvetica, sans-serif;
+  font-size: 18px;
+  margin: 80px 0px 0px 0px;
+  height: 100vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-box, .signup-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 12px;
+  background-color:rgba(232, 232, 232, 0.455);
+  box-shadow: 0px 0px 3px rgba(63, 63, 63, 0.53);
+  width: 360px;
+  height: 320px;
+  padding: 20px 36px 32px 36px;
+  margin: 36px 0px 0px 0px;
+}
+
+.signup-box {
+  height: 360px;
+}
+
+h1 {
+  margin: 0px 0px 5px 0px;
+  align-self: center;
+}
+
+h4 {
+  margin: 5px 0px 18px 0px;
+  align-self: center;
+}
+
+input {
+  margin: 10px 0px;
+  height: 16px;
+  border-radius: 6px;
+  border: solid 1px rgb(87, 87, 87);
+  padding: 8px;
+}
+
+button {
+  margin-top: 12px;
+  border: none;
+  background-color: rgb(0, 154, 0);
+  height: 42px;
+  border-radius: 12px;
+  font-size: 22px;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: rgb(25, 185, 25);
+  cursor: pointer;
+}
+
+.redirect {
+  margin: 12px 0px 0px 0px;
+  align-content: center;
+}
