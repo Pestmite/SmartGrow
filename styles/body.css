@@ -1,24 +1,3 @@
-body {
-  font-family: roboto, Helvetica, sans-serif;
-  font-size: 18px;
-  margin: 0px;
-
-  overflow-x: hidden;
-  overscroll-behavior: none;
-}
-
-body.active {
-  overflow-y: hidden;
-}
-
-.body {
-  display: flex;
-  flex-direction: column;
-  height: auto;
-  width: calc(100% - 100px);
-  padding: 88px 50px;
-}
-
 .variable-section {
   display: flex;
   justify-content: center;

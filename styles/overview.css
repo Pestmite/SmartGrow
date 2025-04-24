@@ -1,0 +1,33 @@
+.body {
+  padding: 0px;
+}
+
+.main-grid {
+  display: grid;
+  margin: 80px 20px 30px 20px;
+  height: calc(100vh - 120px);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 50% 50%;
+  row-gap: 20px;
+  column-gap: 20px;
+}
+
+.dashboard-item {
+  background-color: bisque;
+  border-radius: 8px;
+}
+
+.saved-graph-item {
+  grid-row: span 1;
+  grid-column: span 2;
+}
+
+.forecast-item {
+  grid-row: span 2;
+  grid-column: span 1;
+}
+
+.about-project-item {
+  grid-row: span 1;
+  grid-column: span 2;
+}

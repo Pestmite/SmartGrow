@@ -1,6 +1,3 @@
-let startY = 0;
-let HIDEMIN = 50;
-
 function generateHeader() {
   document.querySelectorAll('.header').forEach((header) => {
     header.innerHTML = `<div class="menu-header">
@@ -39,23 +36,7 @@ function generateHeader() {
       </div>
     </nav>`
   })
-}
-
-window.addEventListener('scroll', () => {
-  const currentY = window.scrollY;
-
-  if (currentY > HIDEMIN) {
-    if (currentY > startY) {
-      document.querySelector('.header').style.transform = 'translateY(-150%)';
-    } else {
-      document.querySelector('.header').style.transform = 'translateY(0)';
-    }
-  } else {
-    document.querySelector('.header').style.transform = 'translateY(0)';
-  }
-
-  startY = currentY;
-});
+};
 
 generateHeader();
 

@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="styles/body.css">
+  <link rel="stylesheet" href="styles/general.css">
   <link rel="stylesheet" href="styles/header.css">
+  <link rel="stylesheet" href="styles/overview.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
@@ -18,48 +19,15 @@
   <header class="header"></header>
 
   <section class="body">
-    <h1 class="main-title">Control <span class="your">Your</span> Sprinkler System</h1>
-
-    <section class="plant-collection">
-      <section class="plant-section">
-        <label class="plant-label" for="plants">Choose from our plant library, or enter custom details:</label>
-        <select id="plants"></select>
-
-        <div class="data">
-          <div>
-            Humidity Level: <span class="humidity-js"></span>
-          </div>
-        </div>
-
-        <article>
-          <p class="title">Plant Description:</p>
-          <p class="description"></p>
-          <a href="" class="learn-more-js" target='_blank'>Learn more</a>
-        </article>
-      </section>
-
-      <aside class="image">
-        <img src="images/plant.png" alt="">
-      </aside>
+    <section class="main-grid">
+      <div class="dashboard-item saved-graph-item">1</div>
+      <div class="dashboard-item update-time-item">2</div>
+      <div class="dashboard-item forecast-item">3</div>
+      <div class="dashboard-item plant-selector-item">4</div>
+      <div class="dashboard-item about-project-item">5</div>
     </section>
-
-    <section>
-      <div class="debug-section">
-        <h5 class="debug-subtitle">Last watered <span class="last-watering"></span> ago</h5>
-        <h3 class="debug-title">Soil tested in: <span class="time-until-test"></span></h3>
-        <div class="progress-bar-container">
-          <div class="progress-bar"></div>
-        </div>
-        <input type="button" class="water-button" value="Water them now">
-      </div>
-
-      <div class="debug-section">
-        <p class="debug-title">Current soil humidity: <span class="soil-humidity"></span>%</p>
-        <p class="debug-title">Current weatherscore: <span class="weatherscore">50</span></p>
-      </div>
-    </section>
-
   </section>
+  
   <script type="module" src="scripts/overview.js"></script>
   <script type="module" src="scripts/timing.js"></script>
   <script type="module" src="scripts/general.js"></script>
