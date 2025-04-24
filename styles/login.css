@@ -2,9 +2,7 @@ body {
   justify-content: center;
   font-family: roboto, Helvetica, sans-serif;
   margin: 80px 0px 0px 0px;
-  height: 100vh;
-  overflow-y: hidden;
-  overflow-x: hidden;
+  height: 0px;
 }
 
 .body {

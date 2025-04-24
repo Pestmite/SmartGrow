@@ -11,6 +11,7 @@
   left: 0px;
   z-index: 100;
   transition: transform 0.3s ease-in-out;
+  box-shadow: 1px 0px 5px rgba(82, 82, 82, 0.294);
 }
 
 .nav-link {

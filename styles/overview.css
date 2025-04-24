@@ -13,7 +13,7 @@
 }
 
 .dashboard-item {
-  background-color: bisque;
+  background-color: rgb(255, 255, 255);
   border-radius: 8px;
 }
 
@@ -48,13 +48,18 @@
   }
 
   .main-grid {
-    display: grid;
-    margin: 80px 30px 60px 30px;
+    margin: 80px 40px 60px 40px;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 35% 35% 35% 35%;
   }
 
   .body {
     height: 950px;
+  }
+}
+
+@media (max-width: 580px) {
+  .main-grid {
+    margin: 80px 30px 60px 30px;
   }
 }
