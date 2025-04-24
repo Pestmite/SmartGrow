@@ -4,12 +4,12 @@
 
 .main-grid {
   display: grid;
-  margin: 80px 20px 30px 20px;
-  height: calc(100vh - 120px);
+  margin: 80px 30px 30px 30px;
+  height: calc(100vh - 150px);
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 50% 50%;
-  row-gap: 20px;
-  column-gap: 20px;
+  row-gap: 30px;
+  column-gap: 30px;
 }
 
 .dashboard-item {
@@ -30,4 +30,31 @@
 .about-project-item {
   grid-row: span 1;
   grid-column: span 2;
+}
+
+@media (max-width: 1100px) {
+  .forecast-item {
+    display: none;
+  }
+
+  .main-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 750px) {
+  .forecast-item {
+    display: flex;
+  }
+
+  .main-grid {
+    display: grid;
+    margin: 80px 30px 60px 30px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 35% 35% 35% 35%;
+  }
+
+  .body {
+    height: 950px;
+  }
 }
