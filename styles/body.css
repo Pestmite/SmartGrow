@@ -17,25 +17,6 @@
   -webkit-text-fill-color: transparent;
 }
 
-.plant-collection {
-  display: flex;
-  width: 100vw;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.plant-section {
-  margin: 40px 10px 30px 0px;
-  height: auto;
-  width: 50vw;
-  display: flex;
-  flex-direction: column;
-}
-
-.plant-label {
-  font-size: 20px;
-}
-
 .progress-bar-container {
   height: 25px;
   width: 100%;
@@ -101,53 +82,12 @@ img {
   height: 600px;
 }
 
-select {
-  margin-top: 20px;
-  padding: 6px 0px 6px 6px;
-  width: 148px;
-  border-radius: 8px;
-  border: solid 1px;
-  font-size: 16px;
-}
-
-select:focus {
-  outline: none;
-}
-
-.data {
-  border: none;
-  margin: 32px 0px 32px 0px;
-  height: 18px;
-  width: 20vw;
-  min-width: 200px;
-  padding: 10px 20px 10px 12px;
-  border-radius: 12px;
-  background-color: rgb(229, 229, 229);
-  color: rgb(17, 17, 17);
-  font-weight: 600;
-  align-items: center;
-  display: flex;
-}
-
-.data:focus {
-  outline: none;
-}
-
 .title, .subtitle {
   margin: 0px 0px 20px 0px;
 }
 
 .title {
   font-weight: 600;
-}
-
-.learn-more-js {
-  color: rgb(0, 154, 0);
-}
-
-.description {
-  margin-top: 0px;
-  text-indent: 15px;
 }
 
 .variable-name {

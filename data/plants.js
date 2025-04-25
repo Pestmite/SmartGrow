@@ -23,6 +23,21 @@ const humidity = document.querySelector('.humidity-js');
 const description = document.querySelector('.description');
 const learnLink = document.querySelector('.learn-more-js');
 const variables = JSON.parse(stringVariables);
+const plantSelector = document.querySelector('#plants');
+
+if (plantSelector) {
+  plantSelector.addEventListener('change', () => updateData());
+};
+
+export function generateSelect() {
+  plants.forEach((plant) => {
+    if (plant.value == variables.plant) {
+      plantSelector.innerHTML += `<option value="${plant.value}" selected>${plant.value}</option>`;
+    } else {
+      plantSelector.innerHTML += `<option value="${plant.value}">${plant.value}</option>`;
+    };
+  });
+};
 
 export function updateData() {
   plants.forEach((plant) => {

@@ -1,11 +1,6 @@
-import { plants, stringVariables } from "../data/plants.js";
+import { stringVariables } from "../data/plants.js";
 
 const variables = JSON.parse(stringVariables);
-const plantSelector = document.querySelector('#plants');
-
-if (plantSelector) {
-  plantSelector.addEventListener('change', () => updateData());
-};
 
 function generateHeader() {
   document.querySelectorAll('.header').forEach((header) => {
@@ -45,17 +40,7 @@ function generateHeader() {
       </div>
     </nav>`
   })
-};
-
-export function generateSelect() {
-  plants.forEach((plant) => {
-    if (plant.value == variables.plant) {
-      plantSelector.innerHTML += `<option value="${plant.value}" selected>${plant.value}</option>`;
-    } else {
-      plantSelector.innerHTML += `<option value="${plant.value}">${plant.value}</option>`;
-    };
-  });
-};
+}
 
 generateHeader();
 
