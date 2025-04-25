@@ -5,8 +5,8 @@
 .main-grid {
   display: grid;
   margin: 80px 30px 30px 30px;
-  height: calc(100vh - 150px);
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  height: calc(100vh - 140px);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 50% 50%;
   row-gap: 30px;
   column-gap: 30px;
@@ -38,7 +38,7 @@
   }
 
   .main-grid {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -49,17 +49,20 @@
 
   .main-grid {
     margin: 80px 40px 60px 40px;
+    height: 100vh;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 35% 35% 35% 35%;
-  }
-
-  .body {
-    height: 950px;
+    grid-template-rows: repeat(4, auto);
   }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 590px) {
   .main-grid {
     margin: 80px 30px 60px 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .main-grid {
+    grid-template-rows: repeat(4, auto);
   }
 }
