@@ -20,6 +20,9 @@
 .saved-graph-item {
   grid-row: span 1;
   grid-column: span 2;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
 }
 
 .forecast-item {
