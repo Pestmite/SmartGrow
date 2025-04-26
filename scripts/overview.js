@@ -1,15 +1,24 @@
 import { updateData, generateSelect } from '../data/plants.js';
-import { generateChart, updateChartTitle } from './charts.js';
+import { findData, generateChart, updateChartTitle } from './charts.js';
 import { setProgress, resetProgress } from './timing.js';
 
 let watering = false;
+let savingData = [1, 2];
+let labels = ['', ''];
 
-generateChart();
-updateChartTitle();
+generateChart(savingData, labels);
 generateSelect();
+updateChartTitle(savingData);
+
+setInterval(() => {
+  findData(savingData, labels);
+  generateChart(savingData, labels);
+  updateChartTitle(savingData);
+}, 1000);
+
 updateData();
 
-document.querySelector('.water-button').addEventListener('click', () => resetProgress());
+document.querySelector('.water-button').addEventListener('click', resetProgress);
   
 setInterval(() => {
   if (!watering) {

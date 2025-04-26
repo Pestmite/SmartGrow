@@ -43,7 +43,9 @@ export function updateData() {
   plants.forEach((plant) => {
     if (plantSelector.value === plant.value) {
       humidity.innerHTML = plant.humidity;
-      description.innerHTML = plant.description;
+      if (description) {
+        description.innerHTML = plant.description;
+      }
       learnLink.href = plant.link;
     };
   });
