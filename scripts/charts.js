@@ -3,7 +3,12 @@ let newMoneyChart;
 export function generateChart(savingData, labels) {
   let visibleSavingData = savingData.slice(-20);
   let visibleLabels = labels.slice(-20);
-  const moneySavedChart = document.getElementById('money-saved-chart-js').getContext('2d');
+  let moneySavedChart = '';
+  if (window.innerWidth <= 500) {
+    moneySavedChart = document.getElementById('mobile-chart-js').getContext('2d');
+  } else {
+    moneySavedChart = document.getElementById('money-saved-chart-js').getContext('2d');;
+  }
 
   if (newMoneyChart) {
     newMoneyChart.destroy();
@@ -22,7 +27,7 @@ export function generateChart(savingData, labels) {
     gradient.addColorStop(1, 'rgba(244, 67, 54, 0)');
     borderColor = 'rgb(234,67,53)';
   }
-  let minChartY = Math.max([0, (Math.min(...visibleSavingData) - 5)]);
+  let minChartY = Math.max(0, (Math.min(...visibleSavingData) - 5));
   let maxChartY = Math.max(...visibleSavingData) + 5;
   
   newMoneyChart = new Chart(moneySavedChart, {

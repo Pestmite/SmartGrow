@@ -18,10 +18,12 @@ setInterval(() => {
 
 updateData();
 
-document.querySelector('.water-button').addEventListener('click', resetProgress);
-  
-setInterval(() => {
-  if (!watering) {
-    setProgress();
-  }
-}, 1000);
+if (document.querySelector('.water-button')) {
+  document.querySelector('.water-button').addEventListener('click', resetProgress);
+}
+
+// setInterval(() => {
+//   if (!watering) {
+//     setProgress();
+//   }
+// }, 1000);
