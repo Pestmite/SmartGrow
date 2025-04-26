@@ -1,8 +1,8 @@
 let newMoneyChart;
 
-export function generateChart(savingData, labels) {
-  let visibleSavingData = savingData.slice(-20);
-  let visibleLabels = labels.slice(-20);
+export function generateChart(savingData, labels, interval) {
+  let visibleSavingData = interval ? savingData.slice(0 - interval) : savingData;
+  let visibleLabels = interval ? labels.slice(0 - interval) : labels;
   let moneySavedChart = '';
   if (window.innerWidth <= 500) {
     moneySavedChart = document.getElementById('mobile-chart-js').getContext('2d');
@@ -72,7 +72,7 @@ export function generateChart(savingData, labels) {
 
 export function findData(savingData, labels) {
   let randomNumber = Math.random();
-  while (randomNumber < 0.25 || randomNumber > 0.8) {
+  while (randomNumber < 0.34 || randomNumber > 0.68) {
     randomNumber = Math.random();
   }
   let dataPoint = Math.round(randomNumber * 2 * savingData[savingData.length - 1] + 1);
@@ -86,15 +86,19 @@ export function updateChartTitle(savingData) {
   document.querySelector('.watts-saved-js').innerHTML = `${kilowatts}kw &rarr; $${dollarsSaved.toFixed(2)} saved`
 }
 
+export let timeInterval = document.querySelector('.selected-interval').value;
+
 export function intervalOption() {
   const intervalOptions = document.querySelectorAll('.interval-option');
   intervalOptions.forEach((option) => {
-    console.log(option)
-    option.addEventListener('click', () => selectIntervalOption(option));
+    option.addEventListener('click', () => {
+      selectIntervalOption(option);
+    });
   });
 }
 
 function selectIntervalOption(selectedOption) {
   document.querySelector('.selected-interval').classList.remove('selected-interval');
   selectedOption.classList.add('selected-interval');
+  timeInterval = document.querySelector('.selected-interval').value;
 }
