@@ -85,3 +85,16 @@ export function updateChartTitle(savingData) {
   let dollarsSaved = 0.295 * kilowatts;
   document.querySelector('.watts-saved-js').innerHTML = `${kilowatts}kw &rarr; $${dollarsSaved.toFixed(2)} saved`
 }
+
+export function intervalOption() {
+  const intervalOptions = document.querySelectorAll('.interval-option');
+  intervalOptions.forEach((option) => {
+    console.log(option)
+    option.addEventListener('click', () => selectIntervalOption(option));
+  });
+}
+
+function selectIntervalOption(selectedOption) {
+  document.querySelector('.selected-interval').classList.remove('selected-interval');
+  selectedOption.classList.add('selected-interval');
+}

@@ -39,6 +39,30 @@
   display: flex;
 }
 
+.interval-options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -30px;
+  width: 50%;
+  color: rgb(110,125,147);
+  font-size: 14px;
+}
+
+.interval-option {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 8px;
+}
+
+.interval-option {
+  cursor: pointer;
+}
+
+.selected-interval {
+  border: 2px solid rgb(27,114,232);
+  color: rgb(27,114,232);
+}
+
 .forecast-item {
   grid-row: span 2;
   grid-column: span 1;
