@@ -7,9 +7,9 @@ function generateHeader() {
     header.innerHTML = `<div class="menu-header">
      <div class="middle">
       <a href="index.html" class="nav-link selected-page">Overview</a>
-      <a href="index.html" class="nav-link">Simulation</a>
+      <a href="simulation.html" class="nav-link">Simulation</a>
       <a href="customize.html" class="nav-link">Customize</a>
-      <a href="customize.html" class="nav-link">About</a>
+      <a href="about.html" class="nav-link">About</a>
     </div>
       <div class="off-screen-menu">
         <div class="left-menu">
