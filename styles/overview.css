@@ -39,6 +39,12 @@
 .about-project-item {
   grid-row: span 1;
   grid-column: span 2;
+  padding:  0px 20px;
+}
+
+.about-project-item h2 {
+  border-bottom: 2px solid rgb(229, 229, 229);
+  width: 226px;
 }
 
 @media (max-width: 1100px) {
@@ -108,7 +114,7 @@ select {
   margin: 32px 0px 32px 0px;
   height: 18px;
   width: 200px;
-  padding: 10px 20px 10px 12px;
+  padding: 10px 12px;
   border-radius: 12px;
   background-color: rgb(229, 229, 229);
   color: rgb(17, 17, 17);
