@@ -1,0 +1,51 @@
+.plant-collection {
+  display: flex;
+  align-items: center;
+  height: auto;
+  margin: 0px 0px 10px 20px;
+}
+
+.plant-label {
+  font-size: 20px;
+}
+
+select {
+  margin: 20px 60px 0px 0px;
+  padding: 6px 0px 6px 6px;
+  width: 148px;
+  border-radius: 8px;
+  border: solid 1px;
+  font-size: 16px;
+}
+
+.data {
+  border: none;
+  margin: 16px 0px 32px 0px;
+  height: 18px;
+  width: 200px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background-color: rgb(229, 229, 229);
+  color: rgb(17, 17, 17);
+  font-weight: 600;
+}
+
+.data:focus {
+  outline: none;
+}
+
+select:focus {
+  outline: none;
+}
+
+.wiki-link {
+  color: rgb(0, 154, 0);
+}
+
+@media (max-width: 950px) {
+  .data {
+    height: 36px;
+    width: 20vw;
+    min-width: 154px;
+  }
+}

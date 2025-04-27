@@ -1,0 +1,65 @@
+.saved-graph-item {
+  grid-row: span 1;
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0px 30px;
+}
+
+.watts-saved-title {
+  margin: 10px 0px 0px 0px;
+}
+
+#mobile-chart-js {
+  display: none;
+}
+
+#money-saved-chart-js {
+  display: flex;
+}
+
+.interval-options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -30px;
+  width: 60%;
+  color: rgb(110,125,147);
+  font-size: 14px;
+}
+
+.interval-option {
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+}
+
+.interval-option {
+  cursor: pointer;
+}
+
+.selected-interval {
+  border: 2px solid rgb(27,114,232);
+  color: rgb(27,114,232);
+}
+
+@media (max-width: 750px) {
+  .saved-graph-item {
+    padding-bottom: 0px;
+  }
+
+  .about-project-item h2 {
+    margin: 16px 0px;
+  }
+}
+
+@media (max-width: 500px) {
+  #mobile-chart-js {
+    display: flex;
+  }
+
+  #money-saved-chart-js {
+    display: none;
+  }
+}
