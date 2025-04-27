@@ -15,6 +15,7 @@
 .dashboard-item {
   background-color: rgb(255, 255, 255);
   border-radius: 8px;
+  padding: 20px;
 }
 
 .saved-graph-item {
@@ -63,8 +64,7 @@
   color: rgb(27,114,232);
 }
 
-.update-time-item{
-  padding: 20px;
+.update-time-item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -102,7 +102,7 @@
 .about-project-item {
   grid-row: span 1;
   grid-column: span 2;
-  padding:  0px 20px;
+  padding: 0px 20px;
 }
 
 .about-title-section {
@@ -113,6 +113,7 @@
 
 .title-learn-more {
   padding: 5px 10px;
+  font-size: 16px;
 }
 
 .about-project-item h2 {
@@ -127,6 +128,16 @@
 
   .about-project-item p {
     font-size: 16px;
+  }
+
+  .about-project-item h2 {
+    margin: 16px 0px 0px 0px;
+  }
+
+  .title-learn-more {
+    padding: 3px 5px;
+    font-size: 14px;
+    margin: 16px 0px 0px 0px;
   }
 
   .main-grid {
@@ -148,6 +159,16 @@
 
   .saved-graph-item {
     padding-bottom: 0px;
+  }
+
+  .about-project-item h2 {
+    margin: 16px 0px;
+  }
+
+  .title-learn-more {
+    padding: 5px 10px;
+    font-size: 16px;
+    margin: 0px;
   }
 
   .about-project-item p {
@@ -204,7 +225,7 @@ select {
 
 .data {
   border: none;
-  margin: 32px 0px 32px 0px;
+  margin: 16px 0px 32px 0px;
   height: 18px;
   width: 200px;
   padding: 10px 12px;
