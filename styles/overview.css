@@ -63,6 +63,29 @@
   color: rgb(27,114,232);
 }
 
+.update-time-item{
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.update-time-item h4{
+  margin: 0px;
+  color: rgb(157, 165, 177);
+}
+
+.update-time-item h3{
+  margin: 14px 0px 0px 0px;
+  font-size: 24px;
+}
+
+.update-time-item h2{
+  margin: 6px 0px 14px 0px;
+  font-size: 36px;
+}
+
 .forecast-item {
   grid-row: span 2;
   grid-column: span 1;
@@ -111,6 +134,10 @@
 
   .about-project-item p {
     font-size: 18px;
+  }
+
+  .update-time-item{
+    padding: 50px 20px;
   }
 }
 
