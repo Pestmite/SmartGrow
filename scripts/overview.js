@@ -4,6 +4,10 @@ import { findData, generateChart, intervalOption, updateChartTitle, timeInterval
 let watering = false;
 let savingData = [1, 2, 2, 3, 2, 4, 5];
 let labels = ['', '', '', '', '', '', ''];
+if (localStorage.getItem('savingData')) {
+  savingData = JSON.parse(localStorage.getItem('savingData'));
+  labels = JSON.parse(localStorage.getItem('labels'));
+}
 
 generateChart(savingData, labels, timeInterval);
 generateSelect();

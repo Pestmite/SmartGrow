@@ -1,5 +1,10 @@
 let newMoneyChart;
 
+function storeChart(savingData, labels) {
+  localStorage.setItem('savingData', JSON.stringify(savingData));
+  localStorage.setItem('labels', JSON.stringify(labels));
+}
+
 export function generateChart(savingData, labels, interval) {
   let visibleSavingData = interval ? savingData.slice(0 - interval) : savingData;
   let visibleLabels = interval ? labels.slice(0 - interval) : labels;
@@ -79,6 +84,7 @@ export function findData(savingData, labels) {
   let dataPoint = Math.round(randomNumber * 2 * savingData[savingData.length - 1] + 1);
   savingData.push(dataPoint);
   labels.push('');
+  storeChart(savingData, labels)
 }
 
 export function updateChartTitle(savingData) {
