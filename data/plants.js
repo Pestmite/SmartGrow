@@ -21,7 +21,7 @@ export const stringVariables = localStorage.getItem('variables') || JSON.stringi
 
 const humidity = document.querySelector('.humidity-js');
 const description = document.querySelector('.description');
-const learnLink = document.querySelector('.learn-more-js');
+const wikiLink = document.querySelector('.wiki-link-js');
 const variables = JSON.parse(stringVariables);
 const plantSelector = document.querySelector('#plants');
 
@@ -43,10 +43,10 @@ export function updateData() {
   plants.forEach((plant) => {
     if (plantSelector.value === plant.value) {
       humidity.innerHTML = plant.humidity;
-      if (description) {
+      if (description && wikiLink) {
         description.innerHTML = plant.description;
+        wikiLink.href = plant.link;
       }
-      learnLink.href = plant.link;
     };
   });
 

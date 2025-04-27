@@ -152,7 +152,6 @@
   justify-content: start;
   color: white;
   border-radius: 4px;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.086);
 }
 
 @media (max-width: 590px) {
