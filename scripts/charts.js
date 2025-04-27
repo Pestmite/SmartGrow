@@ -27,8 +27,9 @@ export function generateChart(savingData, labels, interval) {
     gradient.addColorStop(1, 'rgba(244, 67, 54, 0)');
     borderColor = 'rgb(234,67,53)';
   }
-  let minChartY = Math.max(0, (Math.min(...visibleSavingData) - 5));
-  let maxChartY = Math.max(...visibleSavingData) + 5;
+  let minChartY = Math.min((Math.min(...visibleSavingData) - 5), (Math.floor(Math.min(...visibleSavingData) - Math.min(...visibleSavingData) * 0.1)));
+  minChartY = Math.max(0, minChartY);
+  let maxChartY = Math.max((Math.max(...visibleSavingData) + 5), (Math.floor(Math.max(...visibleSavingData) * 1.1)));
   
   newMoneyChart = new Chart(moneySavedChart, {
   type: 'line',
@@ -40,7 +41,7 @@ export function generateChart(savingData, labels, interval) {
       borderWidth: 2,
       tension: 0.3,
       pointRadius: function(context) {
-        return context.dataIndex === context.chart.data.datasets[0].data.length - 1 ? 4 : 1;
+        return context.dataIndex === context.chart.data.datasets[0].data.length - 1 ? 4 : 0;
       },
       backgroundColor: gradient,
       fill: true,
@@ -88,11 +89,12 @@ export function updateChartTitle(savingData) {
 
 export let timeInterval = document.querySelector('.selected-interval').value;
 
-export function intervalOption() {
+export function intervalOption(savingData, labels, timeInterval) {
   const intervalOptions = document.querySelectorAll('.interval-option');
   intervalOptions.forEach((option) => {
     option.addEventListener('click', () => {
       selectIntervalOption(option);
+      generateChart(savingData, labels, timeInterval);
     });
   });
 }
