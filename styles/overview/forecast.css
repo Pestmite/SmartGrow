@@ -3,12 +3,35 @@
   grid-column: span 1;
 }
 
-.learn-more {
-  text-decoration: none;
-  background-color: rgb(0, 154, 0);
-  padding: 8px 10px;
-  color: white;
-  border-radius: 4px;
+.daily-forecast {
+  display: flex;
+  align-items: center;
+  background-color: rgb(239, 241, 243);
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+.daily-forecast img {
+  height: 36px;
+  background-color: rgb(255, 255, 255);
+  padding: 8px;
+  border-radius: 20px;
+
+}
+
+.forecast-text {
+  margin-left: 20px;
+}
+
+.daily-forecast h2 {
+  font-size: 18px;
+  margin: 0px;
+}
+
+.daily-forecast p {
+  font-size: 16px;
+  margin: 0px;
+  color: grey
 }
 
 @media (max-width: 1100px) {
@@ -19,6 +42,6 @@
 
 @media (max-width: 750px) {
   .forecast-item {
-    display: flex;
+    display: block;
   }
 }

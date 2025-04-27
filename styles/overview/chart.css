@@ -47,6 +47,7 @@
 @media (max-width: 750px) {
   .saved-graph-item {
     padding-bottom: 0px;
+    height: 40vh;
   }
 
   .about-project-item h2 {
