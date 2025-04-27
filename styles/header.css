@@ -49,13 +49,6 @@
   margin-right: 36px;
 }
 
-.buy-button {
-  background-color: rgb(0, 154, 0);
-  padding: 8px 20px;
-  color: white;
-  border-radius: 4px;
-}
-
 .off-screen-menu {
   background-color: rgb(236, 240, 244);
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.086);
@@ -145,13 +138,22 @@
   border-top: 2px rgb(110,125,147) solid;
 }
 
-.buy-button-menu {
-  display: flex;
+.buy-button, .buy-button-menu {
   background-color: rgb(0, 154, 0);
-  align-items: center;
-  justify-content: start;
+  padding: 8px 20px;
   color: white;
   border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.buy-button-menu {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.buy-button:hover, .buy-button-menu:hover {
+  background-color: rgb(0, 188, 0);
 }
 
 @media (max-width: 590px) {

@@ -1,5 +1,6 @@
 import { updateData, generateSelect } from '../data/plants.js';
 import { findData, generateChart, intervalOption, updateChartTitle, timeInterval, resetChart } from './overview/charts.js';
+import { generateForecast } from './overview/forecast.js';
 
 let watering = false;
 let savingData = [1, 2, 2, 3, 2, 4, 5];
@@ -9,6 +10,7 @@ if (localStorage.getItem('savingData')) {
   labels = JSON.parse(localStorage.getItem('labels'));
 }
 
+generateForecast();
 generateChart(savingData, labels, timeInterval);
 generateSelect();
 updateChartTitle(savingData);

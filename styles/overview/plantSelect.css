@@ -38,6 +38,10 @@ select:focus {
   outline: none;
 }
 
+select:hover {
+  cursor: pointer;
+}
+
 .wiki-link {
   color: rgb(0, 154, 0);
 }
