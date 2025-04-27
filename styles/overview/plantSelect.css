@@ -49,3 +49,9 @@ select:focus {
     min-width: 154px;
   }
 }
+
+@media (max-width: 590px) {
+  .plant-selector-item {
+    padding: 20px 0px;
+  }
+}

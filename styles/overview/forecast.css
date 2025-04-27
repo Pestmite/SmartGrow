@@ -16,7 +16,6 @@
   background-color: rgb(255, 255, 255);
   padding: 8px;
   border-radius: 20px;
-
 }
 
 .forecast-text {
@@ -43,5 +42,19 @@
 @media (max-width: 750px) {
   .forecast-item {
     display: block;
+  }
+}
+
+@media (max-width: 660px) {
+  .forecast-item {
+    display: block;
+  }
+
+  .daily-forecast img {
+    display: none;
+  }
+
+  .forecast-text {
+    margin-left: 0px;
   }
 }

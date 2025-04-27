@@ -105,6 +105,14 @@ export function intervalOption(savingData, labels, timeInterval) {
   });
 }
 
+export function resetChart(savingData, labels) {
+  savingData.length = 0;
+  labels.length = 0;
+  savingData.push(1, 2, 2, 3, 2, 4, 5);
+  labels.push('', '', '', '', '', '', '');
+  storeChart([1, 2, 2, 3, 2, 4, 5], ['', '', '', '', '', '', '']);
+}
+
 function selectIntervalOption(selectedOption) {
   document.querySelector('.selected-interval').classList.remove('selected-interval');
   selectedOption.classList.add('selected-interval');

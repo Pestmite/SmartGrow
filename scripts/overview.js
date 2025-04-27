@@ -1,5 +1,5 @@
 import { updateData, generateSelect } from '../data/plants.js';
-import { findData, generateChart, intervalOption, updateChartTitle, timeInterval } from './overview/charts.js';
+import { findData, generateChart, intervalOption, updateChartTitle, timeInterval, resetChart } from './overview/charts.js';
 
 let watering = false;
 let savingData = [1, 2, 2, 3, 2, 4, 5];
@@ -20,3 +20,5 @@ setInterval(() => {
   generateChart(savingData, labels, timeInterval);
   updateChartTitle(savingData);
 }, 1000);
+
+window.addEventListener('resize', () => generateChart(savingData, labels, timeInterval))
