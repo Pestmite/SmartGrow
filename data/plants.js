@@ -1,29 +1,11 @@
-export const stringVariables = localStorage.getItem('variables') || JSON.stringify({
-  daysConsidered: 5,
-  minMoisture: 40,
-  blockWater: 3,
-  wateringTime: 15,
-  sampleInterval: 20,
-  chanceConsidered: 70,
-  location: 'Montreal',
-  forecastInterval: 7200,
-  serialCalibrate: 100,
-  sensorCalibrate: 100,
-  serialDelay: 3000,
-  lightRain: 2.5,
-  moderateRain: 5,
-  smallBoost: 50,
-  mediumBoost: 100,
-  largeBoost: 200,
-  plant: "Tomato",
-  plantMoisture: 60,
-});
+import { storeVariables, defaultVariables as stringDefaultVariables } from './variables.js';
 
 const humidity = document.querySelector('.humidity-js');
 const description = document.querySelector('.description');
 const wikiLink = document.querySelector('.wiki-link-js');
-const variables = JSON.parse(stringVariables);
 const plantSelector = document.querySelector('#plants');
+
+const defaultVariables = stringDefaultVariables;
 
 if (plantSelector) {
   plantSelector.addEventListener('change', () => updateData());
@@ -31,7 +13,7 @@ if (plantSelector) {
 
 export function generateSelect() {
   plants.forEach((plant) => {
-    if (plant.value == variables.plant) {
+    if (plant.value == defaultVariables.plant) {
       plantSelector.innerHTML += `<option value="${plant.value}" selected>${plant.value}</option>`;
     } else {
       plantSelector.innerHTML += `<option value="${plant.value}">${plant.value}</option>`;
@@ -62,9 +44,9 @@ function storePlant() {
     let highMoisture = parseInt((humidity.innerHTML).substring(3, 5));
     plantMoisture = parseInt((lowMoisture + highMoisture) / 2);
   }
-  variables.plantMoisture = parseInt(plantMoisture);
-  variables.plant = plantSelector.value;
-  localStorage.setItem('variables', JSON.stringify(variables));
+  defaultVariables.plantMoisture = parseInt(plantMoisture);
+  defaultVariables.plant = plantSelector.value;
+  storeVariables();
 }
 
 export const plants = [

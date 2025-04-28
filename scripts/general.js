@@ -1,7 +1,3 @@
-import { stringVariables } from "../data/plants.js";
-
-const variables = JSON.parse(stringVariables);
-
 function generateHeader() {
   document.querySelectorAll('.header').forEach((header) => {
     header.innerHTML = `<div class="menu-header">
