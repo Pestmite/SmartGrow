@@ -1,3 +1,7 @@
+/* General */
+@import url(./general.css);
+@import url(./header.css);
+
 progress-bar-container {
   height: 25px;
   width: 100%;
