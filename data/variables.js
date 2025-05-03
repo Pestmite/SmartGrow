@@ -148,10 +148,12 @@ function resetVariables() {
   generateVariables();
 };
 
-export function generateVariables() {
+export function generateVariables(toggleAdvanced) {
   let variablesText = '';
   let inputText = '';
   let extraInfo;
+  document.querySelector('.simple-variables').innerHTML = '';
+  document.querySelector('.advanced-variables').innerHTML = '';
 
   variables.forEach((variable => {
     extraInfo = '';
@@ -185,8 +187,6 @@ export function generateVariables() {
       </div>
     </div>`
 
-    document.querySelector('.simple-variables').innerHTML += '';
-    document.querySelector('.advanced-variables').innerHTML += '';
     if (variable.type < 5) {
       document.querySelector('.simple-variables').innerHTML += variablesText;
     } else {
@@ -203,6 +203,12 @@ export function generateVariables() {
   resetButton.addEventListener('click', () => resetVariables());
   variableButton.forEach((button) => updateInput(button, 'click'));
   variablesValue.forEach((box) => updateInput(box, 'change'));
+
+  if (toggleAdvanced) {
+    document.querySelector('.simple-variables').innerHTML = '';
+  } else {
+    document.querySelector('.advanced-variables').innerHTML = '';
+  };
 }
 
 function setByPlant() {

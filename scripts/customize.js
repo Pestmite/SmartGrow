@@ -1,25 +1,29 @@
-import { generateVariables, updateMinutes, generateVariablesValues } from "../data/variables.js";
+import { generateVariables, updateMinutes, generateVariablesValues, variables } from "../data/variables.js";
 import { selectPage } from "./general.js";
 
-const advancedCustom = document.querySelector('.advanced-button-js');
-let showAdvanced = 0;
+const simpleToggle = document.querySelector('.simple-toggle');
+const advancedToggle = document.querySelector('.advanced-toggle');
+let advanced = false
 
-if (advancedCustom) {
-  advancedCustom.addEventListener('click', () => toggleAdvanced());
-}
+simpleToggle.addEventListener('click', (event) => toggleAdvanced(event))
+advancedToggle.addEventListener('click', (event) => toggleAdvanced(event))
 
-function toggleAdvanced() {
-  showAdvanced = 1 - showAdvanced;
-  if (showAdvanced === 1) {
-    document.querySelector('.advanced-variables').classList.add('advanced-variables-show');
-    document.querySelector('.advanced-button-js').innerHTML = 'Advanced Customization <img class="arrow" src="images/down.png">';
+function toggleAdvanced(event) {
+  if (event.srcElement.classList.contains('advanced-toggle')) {
+    advanced = true;
   } else {
-    document.querySelector('.advanced-variables').classList.remove('advanced-variables-show');
-    document.querySelector('.advanced-button-js').innerHTML = 'Advanced Customization <img class="arrow" src="images/right.png">';
+    advanced = false;
   }
+
+  document.querySelectorAll('.variable-link-js').forEach((link) => {
+    link.classList.remove('selected-variables')});
+  event.srcElement.classList.add('selected-variables');
+  generateVariables(advanced);
+  generateVariablesValues();
+  document.querySelectorAll('.input-variable').forEach((box) => updateMinutes(box.parentElement));
 }
 
 selectPage('Customize');
-generateVariables();
+generateVariables(advanced);
 generateVariablesValues();
 document.querySelectorAll('.input-variable').forEach((box) => updateMinutes(box.parentElement));

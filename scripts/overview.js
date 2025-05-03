@@ -10,6 +10,7 @@ if (localStorage.getItem('savingData')) {
   labels = JSON.parse(localStorage.getItem('labels'));
 }
 
+// resetChart(savingData, labels);
 selectPage('Overview');
 generateForecast();
 generateChart(savingData, labels, timeInterval);

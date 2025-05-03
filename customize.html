@@ -13,13 +13,17 @@
   <section class="body">
     <section class="main-grid">
       <div class="dashboard-item variable-item">
-        <input type="button" value="Reset Variables" class="reset-variables" id="reset">
+        <div class="variable-nav">
+          <div class="toggle-variables">
+            <button class="nav-link selected-variables simple-toggle variable-link-js">Simple</button>
+            <button class="nav-link advanced-toggle variable-link-js">Advanced</button>
+          </div>
+
+          <input type="button" value="Reset Variables" class="reset-variables" id="reset">
+        </div>
 
         <section class="variable-section">
           <div class="simple-variables"></div>
-
-          <button class="advanced-button advanced-button-js">Advanced Customization <img class="arrow" src="images/right.png"></button>
-
           <div class="advanced-variables"></div>
         </section>
       </div>

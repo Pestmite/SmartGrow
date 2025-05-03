@@ -60,7 +60,7 @@ document.querySelector('.menu').addEventListener('click', () => {
   document.querySelector('body').classList.toggle('active');
 });
 
-document.addEventListener('click', function (event) {
+document.addEventListener('click', (event) => {
   const clickInsideMenu = document.querySelector('.off-screen-menu').contains(event.target);
   const clickMenuButton = document.querySelector('.menu').contains(event.target);
 
