@@ -1,3 +1,8 @@
+.select-plant-item {
+  grid-row: span 1;
+  grid-column: span 2;
+}
+
 .plant-collection {
   display: flex;
   align-items: center;

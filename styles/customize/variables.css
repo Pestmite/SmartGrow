@@ -1,0 +1,201 @@
+.variable-item {
+  grid-row: span 3;
+  grid-column: span 2;
+}
+
+.variable-section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.variable-name {
+  font-weight: 500;
+  font-size: 19px;
+}
+
+.button-variable {
+  border-radius: 50%;
+  border: none;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  background-color: rgb(229, 229, 229);
+  transition: background-color 0.2s;
+}
+
+.variable-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.button-variable:hover {
+  cursor: pointer;
+  background-color: rgb(199, 199, 199);
+}
+
+.variable-buttons .input-variable {
+  margin: 0px 6px;
+}
+
+.button-group {
+  display: flex;
+  align-items: center; 
+}
+
+.boost-variable {
+  margin: 0px 6px;
+}
+
+.info-group {
+  display: flex;
+  position: relative;
+}
+
+.info-icon {
+  height: 18px;
+  margin: 0px 0px 0px 40px;
+}
+
+.info-icon:hover {
+  cursor: pointer;
+}
+
+.info-group .tag {
+  position: absolute;
+  width: 184px;
+  background-color: rgb(76, 76, 76);
+  color: white;
+  padding: 8px;
+  border-radius: 6px;
+  bottom: 40px;
+  right: -100px;
+  font-size: 13px;
+  opacity: 0;
+  transition: opacity 0.15s;
+  pointer-events: none;
+}
+
+.info-group:hover .tag {
+  opacity: 0.9;
+}
+
+.input-variable {
+  border-radius: 12px;
+  background-color: rgb(229, 229, 229);
+  padding: 0px 10px;
+  height: 30px;
+  width: 100px;
+  border: none;
+  font-size: 16px;
+  text-align: center;
+}
+
+.input-variable:focus-visible {
+  outline: none;
+}
+
+.plant-set-button {
+  width: 192px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(229, 229, 229);
+  padding: 6px 0px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: 40px;
+  transition: background-color 0.15s;
+}
+
+.plant-set-button:hover {
+  background-color: rgb(199, 199, 199);
+}
+
+.reset-variables {
+  width: 200px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(229, 229, 229);
+  padding: 16px 0px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.reset-variables:hover {
+  background-color: rgb(255, 114, 114);
+}
+
+.city {
+  width: 192px;
+}
+
+.advanced-variables {
+  margin-left: 32px;
+  display: none;
+}
+
+.advanced-variables-show {
+  display: flex;
+  flex-direction: column;
+}
+
+.advanced-button {
+  width: 300px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(0, 154, 0);
+  padding: 10px 0px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 20px 0px;
+  transition: background-color 0.15s;
+}
+
+.advanced-button:hover {
+  background-color: rgb(0, 188, 0);
+}
+
+.arrow {
+  height: 18px;
+}
+
+.to-minutes {
+  border-radius: 12px;
+  background-color: rgb(229, 229, 229);
+  padding: 0px 10px;
+  height: 30px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  margin-left: 20px;
+}
+
+@media (max-width: 590px) {
+  .plant-label {
+    font-size: 20px;
+  }
+
+  .water-button:hover {
+    background-color: rgb(0, 188, 0);
+  }
+
+  .plant-set-button:hover, .button-variable:hover {
+    background-color: rgb(229, 229, 229);
+  }
+}
+
+@media (max-width: 490px) {
+  .plant-set-button, .to-minutes {
+    margin: 20px 0px 0px 0px;
+  }
+
+  .simple-variables .variable-buttons {
+    display: block;
+  }
+}
