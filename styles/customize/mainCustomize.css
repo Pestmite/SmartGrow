@@ -1,20 +1,6 @@
-.body {
-  padding: 0px;
-}
-
 .main-grid {
-  display: grid;
-  margin: 80px 30px 30px 30px;
-  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 250px 250px 1fr;
-  row-gap: 30px;
-  column-gap: 30px;
-}
-
-.dashboard-item {
-  background-color: rgb(255, 255, 255);
-  border-radius: 8px;
-  padding: 20px;
+  height: auto;
 }
 
 @media (max-width: 1000px) {
