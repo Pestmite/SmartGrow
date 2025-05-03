@@ -20,13 +20,15 @@
   width: 226px;
 }
 
+@media (max-width: 1160px) {
+  .about-project-item h2 {
+    margin: 16px 0px 0px 0px;
+  }
+}
+
 @media (max-width: 1100px) {
   .about-project-item p {
     font-size: 16px;
-  }
-
-  .about-project-item h2 {
-    margin: 16px 0px 0px 0px;
   }
 
   .title-learn-more {

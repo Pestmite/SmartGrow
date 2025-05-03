@@ -2,7 +2,7 @@
 @import url(./general.css);
 @import url(./header.css);
 
-progress-bar-container {
+.progress-bar-container {
   height: 25px;
   width: 100%;
   max-width: 800px;

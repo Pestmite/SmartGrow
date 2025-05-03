@@ -1,4 +1,5 @@
 import { generateVariables, updateMinutes, generateVariablesValues } from "../data/variables.js";
+import { selectPage } from "./general.js";
 
 const advancedCustom = document.querySelector('.advanced-button-js');
 let showAdvanced = 0;
@@ -18,6 +19,7 @@ function toggleAdvanced() {
   }
 }
 
+selectPage('Customize');
 generateVariables();
 generateVariablesValues();
 document.querySelectorAll('.input-variable').forEach((box) => updateMinutes(box.parentElement));
