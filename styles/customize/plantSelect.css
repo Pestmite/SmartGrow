@@ -10,12 +10,21 @@
   margin: 0px 0px 10px 20px;
 }
 
+.large-plant-item {
+  display: flex;
+}
+
+.right-plant-select {
+  margin-left: 20px;
+}
+
 .plant-label {
   font-size: 20px;
+  display: none;
 }
 
 select {
-  margin: 20px 60px 0px 0px;
+  margin: 0px 60px 10px 0px;
   padding: 6px 0px 6px 6px;
   width: 148px;
   border-radius: 8px;
@@ -23,9 +32,9 @@ select {
   font-size: 16px;
 }
 
-.data {
+.data, .full-data {
   border: none;
-  margin: 16px 0px 32px 0px;
+  margin: 12px 0px 12px 0px;
   height: 18px;
   width: 200px;
   padding: 10px 12px;
@@ -35,7 +44,16 @@ select {
   font-weight: 600;
 }
 
-.data:focus {
+.full-data {
+  height: 40px;
+  width: 150px;
+}
+
+.data {
+  margin-bottom: 32px;
+}
+
+.data:focus, .full-data {
   outline: none;
 }
 
@@ -47,8 +65,27 @@ select:hover {
   cursor: pointer;
 }
 
+.description {
+  margin: 0px 0px 10px 0px;
+  text-indent: 15px;
+}
+
+
 .wiki-link {
   color: rgb(0, 154, 0);
+}
+
+.learn-more {
+  text-decoration: none;
+  background-color: rgb(0, 154, 0);
+  padding: 8px 10px;
+  color: white;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.learn-more:hover {
+  background-color: rgb(0, 188, 0);
 }
 
 @media (max-width: 950px) {
@@ -56,6 +93,11 @@ select:hover {
     height: 36px;
     width: 20vw;
     min-width: 154px;
+  }
+
+  .plant-label {
+    display: flex;
+    margin-bottom: 18px
   }
 }
 

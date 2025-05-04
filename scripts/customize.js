@@ -1,4 +1,5 @@
-import { generateVariables, updateMinutes, generateVariablesValues, variables } from "../data/variables.js";
+import { generateSelect, updateData } from "../data/plants.js";
+import { generateVariables, updateMinutes, generateVariablesValues } from "../data/variables.js";
 import { selectPage } from "./general.js";
 
 const simpleToggle = document.querySelector('.simple-toggle');
@@ -26,4 +27,7 @@ function toggleAdvanced(event) {
 selectPage('Customize');
 generateVariables(advanced);
 generateVariablesValues();
+generateSelect();
+updateData();
+
 document.querySelectorAll('.input-variable').forEach((box) => updateMinutes(box.parentElement));
