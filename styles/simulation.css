@@ -2,6 +2,19 @@
 @import url(./general.css);
 @import url(./header.css);
 @import url(./main.css);
+@import url(./simulation/mainSimulation.css);
+
+.simulation-item {
+  grid-column: span 2;
+}
+
+.forecast-item {
+  grid-row: span 2;
+}
+
+.staging-item {
+  grid-column: span 2;
+}
 
 .progress-bar-container {
   height: 25px;
