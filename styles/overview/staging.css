@@ -43,3 +43,9 @@
     font-size: 28px;
   }
 }
+
+@media (max-width: 500px) {
+  .update-time-item{
+    grid-column: span 2;
+  }
+}

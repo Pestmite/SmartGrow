@@ -20,5 +20,6 @@
 @media (max-width: 590px) {
   .main-grid {
     margin: 80px 30px 60px 30px;
+    height: 180vh;
   }
 }

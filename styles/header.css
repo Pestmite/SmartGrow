@@ -173,3 +173,9 @@
     display: flex;
   }
 }
+
+@media (max-width: 350px) {
+  .off-screen-menu {
+    width: 60%;
+  }
+}

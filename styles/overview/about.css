@@ -15,6 +15,10 @@
   font-size: 16px;
 }
 
+.bottom-learn-more {
+  display: none;
+}
+
 .about-project-item h2 {
   border-bottom: 2px solid rgb(229, 229, 229);
   width: 226px;
@@ -51,5 +55,21 @@
 
   .about-project-item p {
     font-size: 18px;
+  }
+}
+
+@media (max-width: 500px) {
+  .about-project-item {
+    padding-bottom: 10px;
+    margin-bottom: 250px;
+  }
+
+  .title-learn-more {
+    display: none;
+  }
+
+  .bottom-learn-more {
+    display: block;
+    width: 120px;
   }
 }

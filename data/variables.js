@@ -152,16 +152,19 @@ export function generateVariables(toggleAdvanced) {
   let variablesText = '';
   let inputText = '';
   let extraInfo;
+  let moreInfo;
   document.querySelector('.simple-variables').innerHTML = '';
   document.querySelector('.advanced-variables').innerHTML = '';
 
   variables.forEach((variable => {
     extraInfo = '';
+    moreInfo = '';
     if (variable.type === 6) {
       extraInfo = `<div class="info-group">
           <img src="images/info.png" class="info-icon">
           <div class="tag">Machine-learning inspired reward, 100 points is equivalent to 1 day without rain.</div>
         </div>`;
+      moreInfo = '<div class="small-screen-info">Machine-learning inspired reward, 100 points is equivalent to 1 day without rain.</div>'
     } else if (variable.type === 2) {
       extraInfo = `<input type="button" value="Set Based On Plant" class="plant-set-button" id="plant-set">`
     } else if (variable.type === 3) {
@@ -184,6 +187,7 @@ export function generateVariables(toggleAdvanced) {
           ${inputText}
         </div>
         <p class="variable-description">${variable.description}</p>
+        ${moreInfo}
       </div>
     </div>`
 
