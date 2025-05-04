@@ -4,12 +4,11 @@
 @import url(./main.css);
 @import url(./simulation/mainSimulation.css);
 
+/* Dashboard Item */
+@import url(./simulation/forecast.css);
+
 .simulation-item {
   grid-column: span 2;
-}
-
-.forecast-item {
-  grid-row: span 2;
 }
 
 .staging-item {
@@ -47,4 +46,14 @@
 .water-button:hover {
   background-color: rgb(0, 190, 0);
   cursor: pointer;
+}
+
+@media (max-width: 950px) {
+  .simulation-item {
+    grid-column: span 1;
+  }
+
+  .staging-item {
+    grid-column: span 1;
+  }
 }

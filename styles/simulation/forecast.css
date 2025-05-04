@@ -35,23 +35,29 @@
 }
 
 @media (max-width: 1250px) {
-  .daily-forecast img {
+  .small-forecast img {
     display: none;
   }
 
-  .forecast-text {
+  .small-forecast .forecast-text {
     margin-left: 0px;
   }
 }
 
 @media (max-width: 1100px) {
-  .forecast-item {
+  .forecast-item:has(.small-forecast) {
     display: none;
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 950px) {
   .forecast-item {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 750px) {
+  .forecast-item:has(.small-forecast) {
     display: block;
   }
 
@@ -69,11 +75,11 @@
     display: block;
   }
 
-  .daily-forecast img {
+  .small-forecast img {
     display: none;
   }
 
-  .forecast-text {
+  .small-forecast .forecast-text {
     margin-left: 0px;
   }
 }

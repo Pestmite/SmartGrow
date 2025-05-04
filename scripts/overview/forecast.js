@@ -1,4 +1,4 @@
-export function generateForecast() {
+export function generateForecast(large=false) {
   const forecastDays = [
     {
       image: 'cloudy',
@@ -13,9 +13,16 @@ export function generateForecast() {
     }
   ];
 
+  let forecast;
+  if (!large) {
+    forecast = 'small-forecast';
+  } else {
+    forecast = 'large-forecast';
+  }
+
   let HTML = '';
   forecastDays.forEach((day) => {
-    HTML += ` <div class="daily-forecast">
+    HTML += ` <div class="daily-forecast ${forecast}">
           <img src="images/weather/${day.image}.png">
           <div class="forecast-text">
             <h2>Monday - 18°C</h2>
