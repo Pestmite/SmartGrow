@@ -12,7 +12,22 @@
 
   <section class="body">
     <section class="main-grid">
-      <div class="dashboard-item simulation-item">1</div>
+      <div class="dashboard-item simulation-item">
+        <div class="debug-section">
+        <h5 class="debug-subtitle">Last watered <span class="last-watering"></span> ago</h5>
+        <h3 class="debug-title">Soil tested in: <span class="time-until-test"></span></h3>
+        <div class="progress-bar-container">
+          <div class="progress-bar"></div>
+        </div>
+        <input type="button" class="water-button" value="Water them now">
+      </div>
+
+      <div class="debug-section">
+        <p class="debug-title">Current soil humidity: <span class="soil-humidity"></span>%</p>
+        <p class="debug-title">Current weatherscore: <span class="weatherscore">50</span></p>
+      </div>
+      </div>
+      
       <div class="dashboard-item forecast-item forecast-item-js">
         <h2>5-day Forecast</h2>
       </div>

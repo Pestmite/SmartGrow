@@ -1,7 +1,7 @@
 const variables = JSON.parse(localStorage.getItem('variables'));
 const progressBar = document.querySelector('.progress-bar');
 
-let totalProgress = variables.sampleInterval;
+let totalProgress = variables[4].default;
 let progress = 0;
 let soilHumidity = 40.58;
 
@@ -9,9 +9,11 @@ export function setProgress() {
   const lastWatering = document.querySelector('.last-watering');
   let percentage = (progress / totalProgress * 100).toFixed()
   progressBar.style.width = `${percentage}%`;
-  document.querySelector('.time-until-test').innerHTML = `${totalProgress - progress}s`;
+  if (document.querySelector('.time-until-test')) {
+    document.querySelector('.time-until-test').innerHTML = `${totalProgress - progress}s`;
 
-  simulateSoil()
+  }
+  simulateSoil();
 
   if (progress < 60) {
     lastWatering.innerHTML = `${progress} seconds`
@@ -24,7 +26,7 @@ export function setProgress() {
   }
 
   if (progress >= totalProgress) {
-    if (soilHumidity <= variables.plantMoisture) {
+    if (soilHumidity <= variables[1].default) {
       resetProgress();
     }
 
@@ -37,18 +39,17 @@ export function setProgress() {
 export function resetProgress() {
   const debugTitle = document.querySelector('.debug-title');
   if (document.querySelector('.time-until-test') !== null) {
-      progress = 0;
+    progress = 0;
     soilHumidity = 82.43;
     setProgress();
-    debugTitle.innerHTML = `WATERING FOR ${variables.wateringTime} SECONDS`;
-    watering = true;
+    debugTitle.innerHTML = `WATERING FOR ${variables[3].default} SECONDS`;
     progressBar.style.width = `100%`;
+    window.watering = true;
 
     setTimeout(() => {
-      watering = false;
+      window.watering = false;
       debugTitle.innerHTML = `Soil tested in: <span class="time-until-test">${totalProgress - progress}s</span>`;
-
-    }, savedWateringTime * 1000);
+    }, variables[3].default * 1000);
   };
 }
 
