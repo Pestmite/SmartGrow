@@ -142,10 +142,11 @@ export function storeVariables() {
   localStorage.setItem('variables', JSON.stringify(variables));
 };
 
-function resetVariables(advanced) {
+export function resetVariables(advanced) {
   variables = JSON.parse(JSON.stringify(defaultVariablesSections));
   storeVariables();
   generateVariables(advanced);
+  console.log('hello')
 };
 
 export function generateVariables(toggleAdvanced) {
@@ -200,12 +201,8 @@ export function generateVariables(toggleAdvanced) {
   }));
 
   const variableButton = document.querySelectorAll('.button-variable');
-  const plantButton = document.querySelector('.plant-set-button');
-  const resetButton = document.querySelector('.reset-variables');
   const variablesValue = document.querySelectorAll('.input-variable');
-  
-  plantButton.addEventListener('click', () => setByPlant());
-  resetButton.addEventListener('click', () => resetVariables(toggleAdvanced));
+
   variableButton.forEach((button) => updateInput(button, 'click'));
   variablesValue.forEach((box) => updateInput(box, 'change'));
 
@@ -216,7 +213,7 @@ export function generateVariables(toggleAdvanced) {
   };
 }
 
-function setByPlant() {
+export function setByPlant() {
   document.getElementById('minMoisture').value = plantMoisture;
   plantMoisture = plantMoisture;
   localStorage.setItem('plantMoisture', JSON.stringify(plantMoisture));
