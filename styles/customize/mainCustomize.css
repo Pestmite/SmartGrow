@@ -3,10 +3,6 @@
   height: auto;
 }
 
-.body {
-  height: 350vh;
-}
-
 @media (max-width: 1000px) {
   .main-grid  {
     grid-template-columns: 1fr;

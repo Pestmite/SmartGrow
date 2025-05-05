@@ -94,7 +94,7 @@ const defaultVariablesSections = [
     name: 'Light rain',
     id: 'lightRain',
     description: 'How many millimeters of water is considered the maximum for light rain?',
-    interval: 1,
+    interval: 0.5,
     type: 5,
     default: 2.5
   }, {
@@ -142,10 +142,10 @@ export function storeVariables() {
   localStorage.setItem('variables', JSON.stringify(variables));
 };
 
-function resetVariables() {
-  variables = defaultVariablesSections;
+function resetVariables(advanced) {
+  variables = JSON.parse(JSON.stringify(defaultVariablesSections));
   storeVariables();
-  generateVariables();
+  generateVariables(advanced);
 };
 
 export function generateVariables(toggleAdvanced) {
@@ -156,6 +156,7 @@ export function generateVariables(toggleAdvanced) {
   document.querySelector('.simple-variables').innerHTML = '';
   document.querySelector('.advanced-variables').innerHTML = '';
 
+  console.log(variables)
   variables.forEach((variable => {
     extraInfo = '';
     moreInfo = '';
@@ -201,10 +202,10 @@ export function generateVariables(toggleAdvanced) {
   const variableButton = document.querySelectorAll('.button-variable');
   const plantButton = document.querySelector('.plant-set-button');
   const resetButton = document.querySelector('.reset-variables');
-  variablesValue = document.querySelectorAll('.input-variable');
+  const variablesValue = document.querySelectorAll('.input-variable');
   
   plantButton.addEventListener('click', () => setByPlant());
-  resetButton.addEventListener('click', () => resetVariables());
+  resetButton.addEventListener('click', () => resetVariables(toggleAdvanced));
   variableButton.forEach((button) => updateInput(button, 'click'));
   variablesValue.forEach((box) => updateInput(box, 'change'));
 
@@ -229,9 +230,9 @@ function updateInput(item, eventListener) {
     const variable = variables.find(v => v.id === singleInputBox.id);
 
     if (item.value === '+') {
-      singleInputBox.value = parseInt(singleInputBox.value) + variable.interval;
+      singleInputBox.value = Math.max((parseFloat(singleInputBox.value) + variable.interval), 0);
     } else if (item.value === '-') {
-      singleInputBox.value = parseInt(singleInputBox.value) - variable.interval;
+      singleInputBox.value = Math.max((parseFloat(singleInputBox.value) - variable.interval), 0);
     }
 
     updateMinutes(customizeVariable);
@@ -240,14 +241,15 @@ function updateInput(item, eventListener) {
 };
 
 function store() {
+  const variablesValue = document.querySelectorAll('.input-variable');
   variablesValue.forEach((variableValue) => {
     const targetVariable = variables.find(v => v.id === variableValue.id);
 
     if (variableValue.id !== 'location') {
-      targetVariable.default = parseInt(variableValue.value);
+      targetVariable.default = parseFloat(variableValue.value);
     } else {
       targetVariable.default = variableValue.value
-    };
+    }
   });
   
   storeVariables();

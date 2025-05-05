@@ -113,7 +113,7 @@ select:hover {
     margin: 10px 0px 10px 0px;
   }
 
-  .plant-collection:has(~.data) {
+  .plant-collection {
     margin: 0px;
   }
 }

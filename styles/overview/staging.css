@@ -48,4 +48,16 @@
   .update-time-item{
     grid-column: span 2;
   }
+
+  .update-time-item h4{
+    color: rgb(157, 165, 177);
+  }
+
+  .update-time-item h3{
+    font-size: 24px;
+  }
+
+  .update-time-item h2{
+    font-size: 36px;
+  }
 }

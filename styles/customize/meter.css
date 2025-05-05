@@ -44,16 +44,22 @@
   transition: background 0.6s ease;
 }
 
+.weatherscore-meter::before {
+  background: conic-gradient(from 0.75turn at 50% 100%, rgb(0, 154, 0) calc(var(--percent) * 1% / 6), rgb(236,240,244) 0);
+}
+
 .meter-item::after {
   margin-top: 80px;
   font-size: 32px;
 }
 
 .weatherscore-meter::after {
+  counter-reset: percentage var(--percent);
   content: counter(percentage);
 }
 
 .humidity-meter::after {
+  counter-reset: percentage var(--percent);
   content: counter(percentage) '%';
 }
 
