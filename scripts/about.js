@@ -1,5 +1,17 @@
 import { selectPage } from "./general.js";
 
+document.querySelectorAll('.about-select-js').forEach((tab) => {
+  tab.addEventListener('click', () => switchSection(tab))
+});
+
+function switchSection(tab) {
+  document.querySelectorAll('.about-select-js').forEach((link) => {
+    link.classList.remove('selected-section')
+  });
+
+  tab.classList.add('selected-section');
+}
+
 selectPage('About');
 
 
