@@ -2,7 +2,18 @@
   grid-column: span 2;
 }
 
-.stage-group {
+.staging-item h3 {
+  color: rgb(172, 172, 172);
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0px;
+}
+
+.staging-item h2 {
+  margin: 10px 0px 50px 0px;
+}
+
+.stages-group {
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -11,16 +22,57 @@
   cursor: pointer;
 }
 
-.stage-group:after {
-  content: '';
+.side-line {
   position: absolute;
   top: 0px;
-  left: calc(((100% - 48px) / 6) * 2 + 24px);
-
-  right: 34px;
+  left: calc(((100% - 24px) / 3) + 12px);
+  right: 24px;
   height: 80px;
-  border: 8px solid rgb(0, 154, 0);
+  border: 8px solid rgb(130, 213, 20);
   border-radius: 24px;
+}
+
+.side-line::after, .side-line::before {
+  content: '';
+  position: absolute;
+  top: 64px;
+  left: calc(50% - 20px);
+  height: 28px;
+  aspect-ratio: 1;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  z-index: 5;
+  border: 6px solid rgb(130, 213, 20);
+}
+
+.side-line::before {
+  background-color: rgb(130, 213, 20);
+  border: none;
+  height: 18px;
+  left: calc(50% - 9px);
+  top: 75px;
+  z-index: 6;
+}
+
+.stage-group {
+  position: relative;
+}
+
+.stage-group p {
+  top: 70px;
+  left: 0px;
+  width: 100px;
+  font-size: 14px;
+  transform: rotate(60deg);
+  position: absolute;
+  z-index: 4
+}
+
+.stage-group .up {
+  transform: rotate(0deg);
+  top: -50px;
+  width: 120px;
+  left: -20px;
 }
 
 .stage {
@@ -28,7 +80,7 @@
   aspect-ratio: 1;
   border-radius: 50%;
   background-color: white;
-  z-index: 2;
+  z-index: 3;
   position: relative;
   display: flex;
   justify-content: center;
@@ -36,11 +88,11 @@
 }
 
 .stage:first-child {
-  margin-left: 24px;
+  margin-left: 14px;
 }
 
 .last-stage {
-  margin-right: 24px;
+  margin-right: 14px;
 }
 
 .current-stage::after {
@@ -48,16 +100,20 @@
   position: absolute;
   height: 18px;
   aspect-ratio: 1;
-  background-color: rgb(0, 154, 0);
-  border-radius: 50%;;
+  background-color: rgb(0, 152, 0);
+  border-radius: 50%;
+  top: 5px;
+  left: 19px;
+  z-index: 5;
 }
 
 .stage-line {
   position: absolute;
   width: 100%;
   height: 40px;
-  border-radius: 22px;
+  border-radius: 18px;
   background-color: rgb(0, 154, 0);
+  z-index: 2;
 }
 
 @media (max-width: 950px) {
