@@ -32,41 +32,49 @@
         <h2>5-day Forecast</h2>
       </div>
       <div class="dashboard-item staging-item">
-        <h3>Last updated at 9:20am</h3>
-        <h2>Current Stage: Watering</h2>
-        <div class="stages-group">
-          <div class="stage-group">
-            <div class="stage first-stage"></div>
-            <p class="up-big-stage">Print Debug Menu</p>
+        <div class="main-screen">
+          <h3>Last updated at 9:20am</h3>
+          <h2>Current Stage: Watering</h2>
+          <div class="stages-group">
+            <div class="stage-group">
+              <div class="stage first-stage"></div>
+              <p>Print Debug Menu</p>
+            </div>
+            <div class="stage-group">
+              <div class="stage"></div>
+              <p class="down-stage">Assign Weather Score</p>
+            </div>
+            <div class="stage-group">
+              <div class="stage"></div>
+              <p>Weather Score < 0?</p>
+            </div>
+            <div class="stage-group">
+              <div class="stage"></div>
+              <p class="down-stage">Test Soil</p>
+            </div>
+            <div class="stage-group soil-dry">
+              <div class="stage"></div>
+              <p>Humidity < minHumidity</p>
+            </div>
+            <div class="stage-group current-stage">
+              <div class="stage"></div>
+              <p class="down-stage">WATER PLANTS</p>
+            </div>
+            <div class="stage-group last-stage">
+              <div class="stage"></div>
+              <p>Power Off</p>
+            </div>
+            <div class="stage-line"></div>
+            <div class="side-line">
+              <p class="side-line-paragraph">Block Pause </p>
+            </div>
           </div>
-          <div class="stage-group">
-            <div class="stage"></div>
-            <p class="down-stage">Assign WeatherScore</p>
-          </div>
-          <div class="stage-group">
-            <div class="stage"></div>
-            <p class="up-big-stage">WeatherScore < 0?</p>
-          </div>
-          <div class="stage-group">
-            <div class="stage"></div>
-            <p class="down-stage">Test Soil</p>
-          </div>
-          <div class="stage-group soil-dry">
-            <div class="stage"></div>
-            <p class="up-big-stage">Humidity < minHumidity</p>
-          </div>
-          <div class="stage-group current-stage">
-            <div class="stage"></div>
-            <p class="down-stage">WATER PLANTS</p>
-          </div>
-          <div class="stage-group last-stage">
-            <div class="stage"></div>
-            <p class="up-stage">Power off</p>
-          </div>
-          <div class="stage-line"></div>
-          <div class="side-line">
-            <p class="side-line-paragraph">Block Prolonged Water Pause </p>
-          </div>
+        </div>
+        <div class="small-screen">
+          <h4>Last updated at 9:20 am</h2>
+          <h3>Current stage:</h3>
+          <h2>WATERING</h2>
+          <h4>Next Stage: SAMPLING</h4>
         </div>
       </div>
     </section>

@@ -7,6 +7,6 @@
 /* Dashboard Items */
 @import url(./overview/chart.css);
 @import url(./customize/plantSelect.css);
-@import url(./overview/staging.css);
+@import url(./simulation/staging.css);
 @import url(./simulation/forecast.css);
 @import url(./overview/about.css);
