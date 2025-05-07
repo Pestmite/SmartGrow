@@ -9,3 +9,9 @@
     height: auto;
   }
 }
+
+@media (max-width: 380px) {
+  .main-grid {
+    margin: 80px 10px 30px 10px; 
+  }
+}
