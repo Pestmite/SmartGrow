@@ -5,15 +5,14 @@ const description = document.querySelector('.description');
 const wikiLink = document.querySelector('.wiki-link-js');
 const plantSelector = document.querySelector('#plants');
 
-const defaultVariables = stringDefaultVariables;
-
 if (plantSelector) {
   plantSelector.addEventListener('change', () => updateData());
 };
 
 export function generateSelect() {
+  let selectedPlant = JSON.parse(localStorage.getItem('selectedPlant')) || 'Tomato';
   plants.forEach((plant) => {
-    if (plant.value == defaultVariables.plant) {
+    if (plant.value == selectedPlant) {
       plantSelector.innerHTML += `<option value="${plant.value}" selected>${plant.value}</option>`;
     } else {
       plantSelector.innerHTML += `<option value="${plant.value}">${plant.value}</option>`;
@@ -44,9 +43,9 @@ function storePlant() {
     let highMoisture = parseInt((humidity.innerHTML).substring(3, 5));
     plantMoisture = parseInt((lowMoisture + highMoisture) / 2);
   }
-  defaultVariables.plantMoisture = parseInt(plantMoisture);
-  defaultVariables.plant = plantSelector.value;
-  storeVariables();
+  localStorage.setItem('plantMoisture', JSON.stringify(parseInt(plantMoisture)));
+  localStorage.setItem('selectedPlant', JSON.stringify(plantSelector.value));
+  generateSelect();
 }
 
 export const plants = [

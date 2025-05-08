@@ -1,8 +1,3 @@
-// JSON.stringify({
-//   plant: "Tomato",
-//   plantMoisture: 60,
-// });
-
 /*
 Type Guide:
   1. Normal
@@ -146,7 +141,6 @@ export function resetVariables(advanced) {
   variables = JSON.parse(JSON.stringify(defaultVariablesSections));
   storeVariables();
   generateVariables(advanced);
-  console.log('hello')
 };
 
 export function generateVariables(toggleAdvanced) {
@@ -157,7 +151,6 @@ export function generateVariables(toggleAdvanced) {
   document.querySelector('.simple-variables').innerHTML = '';
   document.querySelector('.advanced-variables').innerHTML = '';
 
-  console.log(variables)
   variables.forEach((variable => {
     extraInfo = '';
     moreInfo = '';
@@ -214,10 +207,15 @@ export function generateVariables(toggleAdvanced) {
 }
 
 export function setByPlant() {
+  plantMoisture = JSON.parse(localStorage.getItem('plantMoisture'));
+  selectedPlant = JSON.parse(localStorage.getItem('selectedPlant'));
+
   document.getElementById('minMoisture').value = plantMoisture;
-  plantMoisture = plantMoisture;
+  variables[1].default = plantMoisture;
   localStorage.setItem('plantMoisture', JSON.stringify(plantMoisture));
   localStorage.setItem('selectedPlant', JSON.stringify(selectedPlant));
+
+  storeVariables();
 };
 
 function updateInput(item, eventListener) {
