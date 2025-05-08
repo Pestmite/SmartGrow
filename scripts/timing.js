@@ -1,3 +1,5 @@
+import { updateMeters } from "../data/variables.js";
+
 const variables = JSON.parse(localStorage.getItem('variables'));
 const progressBar = document.querySelector('.progress-bar');
 

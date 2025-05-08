@@ -1,5 +1,5 @@
 import { generateSelect, updateData } from "../data/plants.js";
-import { generateVariables, updateMinutes, generateVariablesValues, setByPlant, resetVariables } from "../data/variables.js";
+import { generateVariables, updateMinutes, generateVariablesValues, setByPlant, resetVariables, updateMeters } from "../data/variables.js";
 import { selectPage } from "./general.js";
 
 const simpleToggle = document.querySelector('.simple-toggle');
@@ -26,6 +26,7 @@ generateVariables(advanced);
 generateVariablesValues();
 generateSelect();
 updateData();
+updateMeters();
 
 document.querySelectorAll('.input-variable').forEach((box) => updateMinutes(box.parentElement));
 const resetButton = document.querySelector('.reset-variables');
