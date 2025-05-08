@@ -277,8 +277,7 @@ export function generateVariablesValues() {
 };
 
 export function updateMeters() {
-  let soilHumidity = document.querySelector('.soil-humidity') ?
-    document.querySelector('.soil-humidity') : 60;
+  let soilHumidity = Math.round(JSON.parse(localStorage.getItem('soilHumidity'))) || 82;
   console.log(soilHumidity);
   document.querySelector('.humidity-meter').style.setProperty(('--percent'), soilHumidity);
 }

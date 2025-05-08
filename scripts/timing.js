@@ -59,4 +59,5 @@ function simulateSoil() {
   soilHumidity = soilHumidity.toFixed(2)
   document.querySelector('.soil-humidity').innerHTML = soilHumidity;
   soilHumidity = Math.max(soilHumidity - 0.35, 0);
+  localStorage.setItem('soilHumidity', JSON.stringify(soilHumidity))
 }
