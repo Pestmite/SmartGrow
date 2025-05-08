@@ -46,7 +46,7 @@
   top: 42px;
 }
 
-.soil-dry {
+.soil-dry, .choice-stage {
   display: flex;
   justify-content: center;
 }
@@ -54,10 +54,19 @@
 .soil-dry::after {
   content: '';
   position: absolute;
-  top: 0;
   height: 90px;
   width: 8px;
   background-color: rgb(130, 213, 20);
+}
+
+.choice-stage::after {
+  content: 'YES';
+  position: absolute;
+  margin-left: 132px;
+  width: 90px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .stage {
@@ -199,6 +208,10 @@
 
   .staging-item h2 {
     font-size: 24px;
+  }
+
+  .choice-stage::after {
+    display: none;
   }
 }
 
