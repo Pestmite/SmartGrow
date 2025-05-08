@@ -9,11 +9,28 @@ document.querySelector('.water-button').addEventListener('click', () => {
   watering = true;
 });
 
+function setStage(stage) {
+  if (document.querySelector('.current-stage')) {
+      document.querySelector('.current-stage').classList.remove('current-stage');
+    } else if (document.querySelector('.current-side-stage')) {
+      document.querySelector('.current-side-stage').classList.remove('current-side-stage');
+  }
+  
+  let stageIndex = stage === 'sleep' ? 6 : 5;
+
+  document.querySelectorAll('.stage-group')[stageIndex].classList.add('current-stage');
+} 
+
 selectPage('Simulation');
 generateForecast(true);
 setProgress();
+setStage('sleep');
 
 setInterval(() => {
   if (!watering) {
     setProgress();
-  }}, 1000);
+    setStage('sleep');
+  } else {
+    setStage('water');
+  }
+}, 1000);

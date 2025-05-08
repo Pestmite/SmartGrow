@@ -11,7 +11,7 @@ advancedToggle.addEventListener('click', (event) => toggleAdvanced(event, false)
 
 function toggleAdvanced(event, isSimple) {
   document.querySelectorAll('.variable-link-js').forEach((link) => {
-    link.classList.remove('selected-variables')
+    link.classList.remove('selected-variables');
   });
   
   advanced = isSimple ? false : true;
