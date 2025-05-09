@@ -1,6 +1,6 @@
 import { updateMeters } from "../data/variables.js";
 
-const variables = JSON.parse(localStorage.getItem('variables'));
+const variables = JSON.parse(localStorage.getItem('variables')) || defaultVariablesSection;
 const progressBar = document.querySelector('.progress-bar');
 
 let totalProgress = variables[4].default;
@@ -46,16 +46,16 @@ export function setProgress() {
 }
 
 export function resetProgress() {
+  progress = 0;
+  soilHumidity = 82.43;
+  setProgress();
+  window.watering = true;
+
   const debugTitle = document.querySelector('.debug-title');
   if (document.querySelector('.time-until-test') !== null) {
     debugTitle.innerHTML = `WATERING FOR ${variables[3].default} SECONDS`;
     progressBar.style.width = `100%`;
   };
-
-  progress = 0;
-  soilHumidity = 82.43;
-  setProgress();
-  window.watering = true;
 
   setTimeout(() => {
     window.watering = false;
@@ -65,13 +65,10 @@ export function resetProgress() {
   }, variables[3].default * 1000);
 }
 
-function simulateSoil() {
-  soilHumidity = soilHumidity.toFixed(2)
-
-  if (document.querySelector('.soil-humidity')) {
+function simulateSoil() {if (document.querySelector('.soil-humidity')) {
     document.querySelector('.soil-humidity').innerHTML = soilHumidity;
   }
 
-  soilHumidity = Math.max(soilHumidity - 0.35, 0);
+  soilHumidity = (Math.max(soilHumidity - 0.35, 0)).toFixed(2);
   localStorage.setItem('soilHumidity', JSON.stringify(soilHumidity))
 }

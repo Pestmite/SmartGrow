@@ -41,7 +41,6 @@
   mask-mode: alpha;
   -webkit-mask: radial-gradient(at 50% 100%, #0000 46%, #000 0);
   -webkit-mask-mode: alpha;
-  transition: background 0.6s ease;
 }
 
 .weatherscore-meter::before {

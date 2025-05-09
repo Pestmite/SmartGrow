@@ -2,8 +2,7 @@ import { setProgress } from "./timing.js";
 import { setStage } from "./simulation.js";
 
 function generateHeader() {
-  document.querySelectorAll('.header').forEach((header) => {
-    header.innerHTML = `<div class="menu-header">
+  document.querySelector('.header').innerHTML = `<div class="menu-header">
      <div class="middle">
       <a href="index.html" class="nav-link">Overview</a>
       <a href="simulation.html" class="nav-link">Simulation</a>
@@ -38,10 +37,11 @@ function generateHeader() {
         <a class="nav-link buy-button" href="">Buy</a>
       </div>
     </nav>`
-  })
 }
 
 export function selectPage(page) {
+  generateHeader();
+  
   document.querySelectorAll('.nav-link').forEach((link) => {
     if (link.innerHTML === page) {
       link.classList.add('selected-page')
@@ -54,8 +54,6 @@ export function selectPage(page) {
     }
   });
 }
-
-generateHeader();
 
 document.querySelector('.menu').addEventListener('click', () => {
   document.querySelector('.menu').classList.toggle('active');

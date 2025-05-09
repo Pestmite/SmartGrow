@@ -138,8 +138,18 @@
 }
 
 .first-right-menu {
-  padding-top: 40px;
-  border-top: 2px rgb(110,125,147) solid;
+  margin-top: 40px;
+  position: relative;
+}
+
+.first-right-menu::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 2px;
+  left: 0px;
+  bottom: 100px;
+  background-color: rgb(110,125,147);
 }
 
 .buy-button, .buy-button-menu {
