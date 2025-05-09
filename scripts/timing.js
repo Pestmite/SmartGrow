@@ -4,8 +4,8 @@ const variables = JSON.parse(localStorage.getItem('variables'));
 const progressBar = document.querySelector('.progress-bar');
 
 let totalProgress = variables[4].default;
-let progress = 0;
-let soilHumidity = 40.58;
+let progress = JSON.parse(localStorage.getItem('progress')) || 0;
+let soilHumidity = JSON.parse(localStorage.getItem('soilHumidity')) || 40.58;
 
 export function setProgress() {
   if (progressBar) {
@@ -13,9 +13,7 @@ export function setProgress() {
     progressBar.style.width = `${percentage}%`;
     if (document.querySelector('.time-until-test')) {
       document.querySelector('.time-until-test').innerHTML = `${totalProgress - progress}s`;
-
     }
-    simulateSoil();
 
     const lastWatering = document.querySelector('.last-watering');
     if (progress < 60) {
@@ -29,6 +27,7 @@ export function setProgress() {
     }
   }
 
+  simulateSoil();
   if (progress >= totalProgress) {
     if (soilHumidity <= variables[1].default) {
       resetProgress();
@@ -38,23 +37,32 @@ export function setProgress() {
   } else {
     progress++;
   }
+
+  if (document.querySelector('.humidity-meter')) {
+    updateMeters();
+  }
+
+  localStorage.setItem('progress', JSON.stringify(progress));
 }
 
 export function resetProgress() {
   const debugTitle = document.querySelector('.debug-title');
   if (document.querySelector('.time-until-test') !== null) {
-    progress = 0;
-    soilHumidity = 82.43;
-    setProgress();
     debugTitle.innerHTML = `WATERING FOR ${variables[3].default} SECONDS`;
     progressBar.style.width = `100%`;
-    window.watering = true;
-
-    setTimeout(() => {
-      window.watering = false;
-      debugTitle.innerHTML = `Soil tested in: <span class="time-until-test">${totalProgress - progress}s</span>`;
-    }, variables[3].default * 1000);
   };
+
+  progress = 0;
+  soilHumidity = 82.43;
+  setProgress();
+  window.watering = true;
+
+  setTimeout(() => {
+    window.watering = false;
+    if (debugTitle) {
+      debugTitle.innerHTML = `Soil tested in: <span class="time-until-test">${totalProgress - progress}s</span>`;
+    }
+  }, variables[3].default * 1000);
 }
 
 function simulateSoil() {
