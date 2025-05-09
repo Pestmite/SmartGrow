@@ -1,3 +1,6 @@
+import { setProgress } from "./timing.js";
+import { setStage } from "./simulation.js";
+
 function generateHeader() {
   document.querySelectorAll('.header').forEach((header) => {
     header.innerHTML = `<div class="menu-header">
@@ -70,3 +73,13 @@ document.addEventListener('click', (event) => {
     document.body.classList.remove('active');
   }
 });
+
+
+setInterval(() => {
+  if (!watering) {
+    setProgress();
+    setStage('sleep');
+  } else {
+    setStage('water');
+  }
+}, 1000);

@@ -33,5 +33,7 @@ export function generateForecast(large=false) {
         </div>`
   });
 
-  document.querySelector('.forecast-item-js').innerHTML += HTML;
+  if (document.querySelector('.forecast-item-js')) {
+    document.querySelector('.forecast-item-js').innerHTML += HTML;
+  }
 }

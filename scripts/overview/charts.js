@@ -78,7 +78,7 @@ export function generateChart(savingData, labels, interval) {
 
 export function findData(savingData, labels) {
   let randomNumber = Math.random();
-  while (randomNumber < 0.36 || randomNumber > 0.66) {
+  while (randomNumber < 0.4 || randomNumber > 0.61) {
     randomNumber = Math.random();
   }
   let dataPoint = Math.round(randomNumber * 2 * savingData[savingData.length - 1] + 1);

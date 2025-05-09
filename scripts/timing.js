@@ -8,23 +8,25 @@ let progress = 0;
 let soilHumidity = 40.58;
 
 export function setProgress() {
-  const lastWatering = document.querySelector('.last-watering');
-  let percentage = (progress / totalProgress * 100).toFixed()
-  progressBar.style.width = `${percentage}%`;
-  if (document.querySelector('.time-until-test')) {
-    document.querySelector('.time-until-test').innerHTML = `${totalProgress - progress}s`;
+  if (progressBar) {
+    let percentage = (progress / totalProgress * 100).toFixed()
+    progressBar.style.width = `${percentage}%`;
+    if (document.querySelector('.time-until-test')) {
+      document.querySelector('.time-until-test').innerHTML = `${totalProgress - progress}s`;
 
-  }
-  simulateSoil();
+    }
+    simulateSoil();
 
-  if (progress < 60) {
-    lastWatering.innerHTML = `${progress} seconds`
-  } else if (progress < 3600) {
-    lastWatering.innerHTML = `${Math.floor(progress / 60)} minutes`
-  } else {
-    const hours = Math.floor(progress / 3600);
-    const minutes = Math.floor((progress % 3600) / 60);
-    lastWatering.innerHTML = `${hours}h ${minutes}m ago`;
+    const lastWatering = document.querySelector('.last-watering');
+    if (progress < 60) {
+      lastWatering.innerHTML = `${progress} seconds`
+    } else if (progress < 3600) {
+      lastWatering.innerHTML = `${Math.floor(progress / 60)} minutes`
+    } else {
+      const hours = Math.floor(progress / 3600);
+      const minutes = Math.floor((progress % 3600) / 60);
+      lastWatering.innerHTML = `${hours}h ${minutes}m ago`;
+    }
   }
 
   if (progress >= totalProgress) {
@@ -57,7 +59,11 @@ export function resetProgress() {
 
 function simulateSoil() {
   soilHumidity = soilHumidity.toFixed(2)
-  document.querySelector('.soil-humidity').innerHTML = soilHumidity;
+
+  if (document.querySelector('.soil-humidity')) {
+    document.querySelector('.soil-humidity').innerHTML = soilHumidity;
+  }
+
   soilHumidity = Math.max(soilHumidity - 0.35, 0);
   localStorage.setItem('soilHumidity', JSON.stringify(soilHumidity))
 }
