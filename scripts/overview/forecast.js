@@ -34,6 +34,6 @@ export function generateForecast(large=false) {
   });
 
   if (document.querySelector('.forecast-item-js')) {
-    document.querySelector('.forecast-item-js').innerHTML += HTML;
+    document.querySelector('.forecast-item-js').innerHTML = HTML;
   }
 }

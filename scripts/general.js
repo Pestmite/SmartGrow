@@ -41,10 +41,16 @@ function generateHeader() {
 
 export function selectPage(page) {
   generateHeader();
-  
+
+  document.querySelector('.menu').addEventListener('click', () => {
+    document.querySelector('.menu').classList.toggle('active');
+    document.querySelector('.off-screen-menu').classList.toggle('active');
+    document.querySelector('body').classList.toggle('active');
+  });
+    
   document.querySelectorAll('.nav-link').forEach((link) => {
-    if (link.innerHTML === page) {
-      link.classList.add('selected-page')
+    if (link.innerHTML === page && page !== 'Sign in') {
+      link.classList.add('selected-page');
     }
   });
 
@@ -54,12 +60,6 @@ export function selectPage(page) {
     }
   });
 }
-
-document.querySelector('.menu').addEventListener('click', () => {
-  document.querySelector('.menu').classList.toggle('active');
-  document.querySelector('.off-screen-menu').classList.toggle('active');
-  document.querySelector('body').classList.toggle('active');
-});
 
 document.addEventListener('click', (event) => {
   const clickInsideMenu = document.querySelector('.off-screen-menu').contains(event.target);

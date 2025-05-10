@@ -91,12 +91,14 @@
 
 @media (max-width: 500px) {
   .forecast-item:has(.small-forecast) {
-    display: none;
+    grid-column: span 2;
   }
-}
 
-@media (max-width: 500px) {
-  .forecast-item  img {
-    display: none;
+  .small-forecast img {
+    display: block;
+  }
+
+  .small-forecast .forecast-text {
+    margin-left: 20px;
   }
 }
