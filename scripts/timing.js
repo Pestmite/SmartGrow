@@ -65,7 +65,8 @@ export function resetProgress() {
   }, variables[3].default * 1000);
 }
 
-function simulateSoil() {if (document.querySelector('.soil-humidity')) {
+function simulateSoil() {
+  if (document.querySelector('.soil-humidity')) {
     document.querySelector('.soil-humidity').innerHTML = soilHumidity;
   }
 

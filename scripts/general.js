@@ -1,14 +1,14 @@
 import { setProgress } from "./timing.js";
-import { setStage } from "./simulation.js";
+import { setStage, updateStageText } from "./staging.js";
 
 function generateHeader() {
   document.querySelector('.header').innerHTML = `<div class="menu-header">
-     <div class="middle">
-      <a href="index.html" class="nav-link">Overview</a>
-      <a href="simulation.html" class="nav-link">Simulation</a>
-      <a href="customize.html" class="nav-link">Customize</a>
-      <a href="about.html" class="nav-link">About</a>
-    </div>
+      <div class="middle">
+        <a href="index.html" class="nav-link">Overview</a>
+        <a href="simulation.html" class="nav-link">Simulation</a>
+        <a href="customize.html" class="nav-link">Customize</a>
+        <a href="about.html" class="nav-link">About</a>
+      </div>
       <div class="off-screen-menu">
         <div class="left-menu">
           <a href="index.html" class="menu-element">Overview</a>
@@ -74,10 +74,12 @@ document.addEventListener('click', (event) => {
 
 
 setInterval(() => {
-  if (!watering) {
+  if (!window.watering) {
     setProgress();
     setStage('sleep');
+    updateStageText('PowerDown');
   } else {
     setStage('water');
+    updateStageText('WATERING');
   }
 }, 1000);

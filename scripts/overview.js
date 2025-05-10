@@ -2,6 +2,7 @@ import { updateData, generateSelect } from '../data/plants.js';
 import { selectPage } from './general.js';
 import { findData, generateChart, intervalOption, updateChartTitle, timeInterval, resetChart } from './overview/charts.js';
 import { generateForecast } from './overview/forecast.js';
+import { updateStageText } from './staging.js';
 
 let savingData = [1, 2, 2, 3, 2, 4, 5];
 let labels = ['', '', '', '', '', '', ''];
@@ -12,6 +13,7 @@ if (localStorage.getItem('savingData')) {
 
 // resetChart(savingData, labels);
 selectPage('Overview');
+updateStageText('PowerDown');
 generateForecast();
 generateChart(savingData, labels, timeInterval);
 generateSelect();
