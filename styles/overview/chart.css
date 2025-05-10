@@ -20,6 +20,10 @@
   display: flex;
 }
 
+#low-tier-chart-js {
+  display: none;
+}
+
 .interval-options {
   display: flex;
   justify-content: space-between;
@@ -69,5 +73,15 @@
 
   .interval-options {
     width: 80%;
+  }
+}
+
+@media (max-width: 400px) {
+  #mobile-chart-js {
+    display: none;
+  }
+
+  #low-tier-chart-js {
+    display: flex;
   }
 }

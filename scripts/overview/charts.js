@@ -9,10 +9,12 @@ export function generateChart(savingData, labels, interval) {
   let visibleSavingData = interval ? savingData.slice(0 - interval) : savingData;
   let visibleLabels = interval ? labels.slice(0 - interval) : labels;
   let moneySavedChart = '';
-  if (window.innerWidth <= 500) {
+  if (window.innerWidth <= 400) {
+    moneySavedChart = document.getElementById('low-tier-chart-js').getContext('2d');
+  } else if (window.innerWidth <= 500) {
     moneySavedChart = document.getElementById('mobile-chart-js').getContext('2d');
   } else {
-    moneySavedChart = document.getElementById('money-saved-chart-js').getContext('2d');;
+    moneySavedChart = document.getElementById('money-saved-chart-js').getContext('2d');
   }
 
   if (newMoneyChart) {
