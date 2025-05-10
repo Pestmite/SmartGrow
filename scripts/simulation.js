@@ -1,7 +1,7 @@
 import { selectPage } from "./general.js";
-import { generateForecast } from './overview/forecast.js';
-import { setProgress, resetProgress } from "./timing.js";
-import { setStage, updateStageText } from "./staging.js";
+import { generateForecast } from './specific/forecast.js';
+import { setProgress, resetProgress } from "./specific/timing.js";
+import { setStage, updateStageText } from "./specific/staging.js";
 
 window.watering = false;
 const waterButton = document.querySelector('.water-button');

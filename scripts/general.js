@@ -1,5 +1,5 @@
-import { setProgress } from "./timing.js";
-import { setStage, updateStageText } from "./staging.js";
+import { setProgress } from "./specific/timing.js";
+import { setStage, updateStageText } from "./specific/staging.js";
 
 function generateHeader() {
   document.querySelector('.header').innerHTML = `<div class="menu-header">

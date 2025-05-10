@@ -1,14 +1,12 @@
+import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
+
+console.log(dayjs());
+
 export function updateStageText(stage) {
   const nextStage = stage === 'PowerDown' ? 'Print Debug Menu' : 'PowerDown';
-  if (document.querySelector('.update-time-item h2')) {
-    document.querySelector('.update-time-item h2').innerHTML = stage;
+  if (document.querySelector('.update-time-item h2') || document.querySelector('.staging-item h2')) {
+    document.querySelectorAll('.stage-name').forEach((item) => {item.innerHTML = stage});
     document.querySelector('.next-stage-name').innerHTML = nextStage;
-
-  } else if (document.querySelector('.staging-item h2')) {
-    document.querySelector('.small-screen h2').innerHTML = stage;
-    document.querySelector('.stage-name').innerHTML = stage;
-    document.querySelector('.next-stage-name').innerHTML = nextStage;
-    
   }
 }
 

@@ -1,5 +1,3 @@
-import { storeVariables, defaultVariables as stringDefaultVariables } from './variables.js';
-
 const humidity = document.querySelector('.humidity-js');
 const description = document.querySelector('.description');
 const wikiLink = document.querySelector('.wiki-link-js');
