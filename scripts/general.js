@@ -1,5 +1,6 @@
 import { setProgress } from "./specific/timing.js";
 import { setStage, updateStageText } from "./specific/staging.js";
+import { changeTime } from "./specific/staging.js";
 
 function generateHeader() {
   document.querySelector('.header').innerHTML = `<div class="menu-header">
@@ -72,6 +73,7 @@ document.addEventListener('click', (event) => {
   }
 });
 
+changeTime();
 
 setInterval(() => {
   if (!window.watering) {

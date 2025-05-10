@@ -80,7 +80,7 @@ export function generateChart(savingData, labels, interval) {
 
 export function findData(savingData, labels) {
   let randomNumber = Math.random();
-  while (randomNumber < 0.4 || randomNumber > 0.61) {
+  while (randomNumber < 0.4 || randomNumber > 0.604) {
     randomNumber = Math.random();
   }
   let dataPoint = Math.round(randomNumber * 2 * savingData[savingData.length - 1] + 1);

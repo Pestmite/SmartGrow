@@ -8,13 +8,11 @@ export function updateStageText(stage) {
   }
 }
 
-export function changeTime(first=false) {
+export function changeTime() {
+  let lastWateredData = JSON.parse(localStorage.getItem('firstTime')) || dayjs().subtract(20, 'm').format('h:mm A');
   if (document.querySelector('.update-time-item h2') || document.querySelector('.staging-item h2')) {
-    if (first) {
-      document.querySelector('.time-name').innerHTML = dayjs().subtract(20, 'm').format('h:mm A');
-    } else {
-      document.querySelector('.time-name').innerHTML = dayjs().format('h:mm A');
-    }
+    document.querySelectorAll('.time-name').forEach((item) => {item.innerHTML = lastWateredData});
+    localStorage.setItem('firstTime', JSON.stringify(dayjs().format('h:mm A')));
   }
 }
 

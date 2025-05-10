@@ -3,7 +3,6 @@ import { selectPage } from './general.js';
 import { findData, generateChart, intervalOption, updateChartTitle, timeInterval, resetChart } from './specific/charts.js';
 import { generateForecast } from './specific/forecast.js';
 import { updateStageText } from './specific/staging.js';
-import { changeTime } from './specific/staging.js';
 
 let savingData = [1, 2, 2, 3, 2, 4, 5];
 let labels = ['', '', '', '', '', '', ''];
@@ -21,7 +20,6 @@ generateSelect();
 updateChartTitle(savingData);
 updateData();
 intervalOption(savingData, labels, timeInterval);
-changeTime(true);
 
 setInterval(() => {
   findData(savingData, labels);
