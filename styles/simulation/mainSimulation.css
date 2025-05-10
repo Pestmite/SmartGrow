@@ -15,3 +15,10 @@
     margin: 80px 10px 30px 10px; 
   }
 }
+
+@media (max-height: 650px) and (min-width: 950px) {
+  .main-grid {
+    grid-template-rows: auto 280px;
+    margin-bottom: 160px;
+  }
+}

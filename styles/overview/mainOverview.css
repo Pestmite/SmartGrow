@@ -23,3 +23,9 @@
     height: 180vh;
   }
 }
+
+@media (max-height: 620px) {
+  .main-grid {
+    grid-template-rows: auto auto;
+  }
+}
