@@ -1,4 +1,5 @@
 import { updateMeters } from "../../data/variables.js";
+import { changeTime } from "./staging.js";
 
 const variables = JSON.parse(localStorage.getItem('variables')) || defaultVariablesSection;
 const progressBar = document.querySelector('.progress-bar');
@@ -9,7 +10,7 @@ let soilHumidity = JSON.parse(localStorage.getItem('soilHumidity')) || 40.58;
 
 export function setProgress() {
   if (progressBar) {
-    let percentage = (progress / totalProgress * 100).toFixed()
+    let percentage = (progress / totalProgress * 100).toFixed();
     progressBar.style.width = `${percentage}%`;
     if (document.querySelector('.time-until-test')) {
       document.querySelector('.time-until-test').innerHTML = `${totalProgress - progress}s`;
@@ -48,6 +49,7 @@ export function setProgress() {
 export function resetProgress() {
   progress = 0;
   soilHumidity = 82.43;
+  changeTime();
   setProgress();
   window.watering = true;
 

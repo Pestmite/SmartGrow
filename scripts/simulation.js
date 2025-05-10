@@ -1,7 +1,7 @@
 import { selectPage } from "./general.js";
 import { generateForecast } from './specific/forecast.js';
 import { setProgress, resetProgress } from "./specific/timing.js";
-import { setStage, updateStageText } from "./specific/staging.js";
+import { changeTime, setStage, updateStageText } from "./specific/staging.js";
 
 window.watering = false;
 const waterButton = document.querySelector('.water-button');
@@ -18,3 +18,4 @@ generateForecast(true);
 setProgress();
 setStage('sleep');
 updateStageText('PowerDown');
+changeTime(true);
