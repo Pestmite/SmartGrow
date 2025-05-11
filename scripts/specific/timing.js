@@ -1,7 +1,8 @@
 import { updateMeters } from "../../data/variables.js";
 import { changeTime } from "./staging.js";
+import { defaultVariablesSections } from "../../data/variables.js";
 
-const variables = JSON.parse(localStorage.getItem('variables')) || defaultVariablesSection;
+const variables = JSON.parse(localStorage.getItem('variables')) || defaultVariablesSections;
 const progressBar = document.querySelector('.progress-bar');
 
 let totalProgress = variables[4].default;

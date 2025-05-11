@@ -8,7 +8,7 @@ Type Guide:
   6. Advanced with extra info
 */
 
-const defaultVariablesSections = [
+export const defaultVariablesSections = [
   {
     name: 'Days Considered',
     id: 'daysConsidered',
@@ -51,6 +51,13 @@ const defaultVariablesSections = [
     interval: 5,
     type: 1,
     default: 70
+  }, {
+    name: 'Number of Sprinklers',
+    id: 'pumpCount',
+    description: 'How many sprinkler\'s does the system use? Used by website to calculate electricity saved.',
+    interval: 1,
+    type: 1,
+    default: 1
   }, {
     name: 'Your Location',
     id: 'location',
@@ -141,6 +148,7 @@ export function resetVariables(advanced) {
   variables = JSON.parse(JSON.stringify(defaultVariablesSections));
   storeVariables();
   generateVariables(advanced);
+  document.querySelectorAll('.to-minutes').forEach((variable) => updateMinutes(variable.parentElement));
 };
 
 export function generateVariables(toggleAdvanced) {
