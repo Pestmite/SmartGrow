@@ -1,4 +1,5 @@
 const humidity = document.querySelector('.humidity-js');
+const interval = document.querySelector('.interval-js');
 const description = document.querySelector('.description');
 const wikiLink = document.querySelector('.wiki-link-js');
 const plantSelector = document.querySelector('#plants');
@@ -22,9 +23,10 @@ export function updateData() {
   plants.forEach((plant) => {
     if (plantSelector.value === plant.value) {
       humidity.innerHTML = plant.humidity;
-      if (description && wikiLink) {
+      if (description) {
         description.innerHTML = plant.description;
         wikiLink.href = plant.link;
+        interval.innerHTML = plant.sampleInterval;
       }
     };
   });
@@ -41,7 +43,11 @@ function storePlant() {
     let highMoisture = parseInt((humidity.innerHTML).substring(3, 5));
     plantMoisture = parseInt((lowMoisture + highMoisture) / 2);
   }
+
+  let plantInterval = parseInt((interval.innerHTML).substring(0, 3));
+
   localStorage.setItem('plantMoisture', JSON.stringify(parseInt(plantMoisture)));
+  localStorage.setItem('plantMoisture', JSON.stringify(parseInt(plantInterval)));
   localStorage.setItem('selectedPlant', JSON.stringify(plantSelector.value));
   generateSelect();
 }
