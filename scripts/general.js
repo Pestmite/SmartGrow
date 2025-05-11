@@ -37,7 +37,8 @@ function generateHeader() {
       <div>
         <a class="nav-link buy-button" href="">Buy</a>
       </div>
-    </nav>`
+    </nav>
+    <div class="overlay"></div>`
 }
 
 export function selectPage(page) {
@@ -47,6 +48,7 @@ export function selectPage(page) {
     document.querySelector('.menu').classList.toggle('active');
     document.querySelector('.off-screen-menu').classList.toggle('active');
     document.querySelector('body').classList.toggle('active');
+    document.querySelector('.overlay').classList.toggle('active')
   });
     
   document.querySelectorAll('.nav-link').forEach((link) => {
