@@ -1,3 +1,5 @@
+import { variables } from "../../data/variables.js";
+
 let newMoneyChart;
 
 function storeChart(savingData, labels) {
@@ -9,6 +11,14 @@ export function generateChart(savingData, labels, interval) {
   let visibleSavingData = interval ? savingData.slice(0 - interval) : savingData;
   let visibleLabels = interval ? labels.slice(0 - interval) : labels;
   let moneySavedChart = '';
+
+  let finalSavingData = [];
+  visibleSavingData.forEach((value) => {
+    finalSavingData.push(value * variables[6].default);
+  });
+
+  visibleSavingData = finalSavingData;
+
   if (window.innerWidth <= 400) {
     moneySavedChart = document.getElementById('low-tier-chart-js').getContext('2d');
   } else if (window.innerWidth <= 500) {
@@ -21,7 +31,7 @@ export function generateChart(savingData, labels, interval) {
     newMoneyChart.destroy();
   }
 
-  const rising = visibleSavingData[0] <= savingData[savingData.length - 1];
+  const rising = visibleSavingData[0] <= visibleSavingData[visibleSavingData.length - 1];
   let gradient = moneySavedChart.createLinearGradient(0, 0, 0, 400);
   let borderColor;
 
@@ -48,7 +58,8 @@ export function generateChart(savingData, labels, interval) {
       borderWidth: 2,
       tension: 0.3,
       pointRadius: function(context) {
-        return context.dataIndex === context.chart.data.datasets[0].data.length - 1 ? 4 : 0;
+        return context.dataIndex ===
+          context.chart.data.datasets[0].data.length - 1 ? 4 : 0;
       },
       backgroundColor: gradient,
       fill: true,
@@ -90,9 +101,10 @@ export function findData(savingData, labels) {
 }
 
 export function updateChartTitle(savingData) {
-  let kilowatts = savingData[savingData.length - 1];
+  let kilowatts = savingData[savingData.length - 1] * variables[6].default;
   let dollarsSaved = 0.295 * kilowatts;
-  document.querySelector('.watts-saved-js').innerHTML = `${kilowatts}kw &rarr; $${dollarsSaved.toFixed(2)} saved`
+  let plural = variables[6].default === 1 ? '' : 's';
+  document.querySelector('.watts-saved-js').innerHTML = `${kilowatts}kw &rarr; $${dollarsSaved.toFixed(2)} saved (${variables[6].default} pump${plural})`
 }
 
 export let timeInterval = document.querySelector('.selected-interval').value;
@@ -110,9 +122,11 @@ export function intervalOption(savingData, labels, timeInterval) {
 export function resetChart(savingData, labels) {
   savingData.length = 0;
   labels.length = 0;
-  savingData.push(1, 2, 2, 3, 2, 4, 5);
-  labels.push('', '', '', '', '', '', '');
-  storeChart([1, 2, 2, 3, 2, 4, 5], ['', '', '', '', '', '', '']);
+  [1, 2, 2, 3, 2, 4, 5].forEach((value) => {
+    savingData.push(value);
+    labels.push('');
+  });
+  storeChart(savingData, labels);
 }
 
 function selectIntervalOption(selectedOption) {
