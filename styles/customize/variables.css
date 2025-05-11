@@ -34,6 +34,57 @@
   background-color: rgb(255, 114, 114);
 }
 
+.weather-switch-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-switch-container .variable-name {
+  margin-bottom: 0px;
+}
+
+.weather-switch {
+  position: relative;
+  cursor: pointer;
+  display: block;
+  width: 90px;
+  height: 42px;
+  margin-top: 16px;
+}
+
+.slider {
+  position: absolute;
+  inset: 0px;
+  background-color: rgb(229,229,229);
+  transition: 0.3s;
+  border-radius: 36px;
+}
+
+.slider::before {
+  position: absolute;
+  content: '';
+  width: 32px;
+  height: 32px;
+  left: 5px;
+  bottom: 5px;
+  background-color: white;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.086);
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.weather-switch input {
+  display: none;
+}
+
+.weather-switch input:checked + .slider {
+  background-color: rgb(0, 154, 0);
+}
+
+.weather-switch input:checked + .slider::before {
+  transform: translateX(46px);
+}
+
 .variable-section {
   display: flex;
   justify-content: center;

@@ -1,5 +1,6 @@
 /*
 Type Guide:
+  0. Switch
   1. Normal
   2. Set based on plant
   3. To minutes
@@ -10,6 +11,12 @@ Type Guide:
 
 export const defaultVariablesSections = [
   {
+    name: 'Consider Weather',
+    id: 'considerWeather',
+    description: 'Is the weatherScore algorithm used in calculations? Turn off for indoor use.',
+    type: 0,
+    default: true
+  }, {
     name: 'Days Considered',
     id: 'daysConsidered',
     description: 'How many days should be considered for the weather forecast calculation?',
@@ -162,37 +169,49 @@ export function generateVariables(toggleAdvanced) {
   variables.forEach((variable => {
     extraInfo = '';
     moreInfo = '';
-    if (variable.type === 6) {
-      extraInfo = `<div class="info-group">
-          <img src="images/info.png" class="info-icon">
-          <div class="tag">Machine-learning inspired reward, 100 points is equivalent to 1 day without rain.</div>
-        </div>`;
-      moreInfo = '<div class="small-screen-info">Machine-learning inspired reward, 100 points is equivalent to 1 day without rain.</div>'
-    } else if (variable.type === 2) {
-      extraInfo = `<input type="button" value="Set Based On Plant" class="plant-set-button" id="plant-set">`
-    } else if (variable.type === 3) {
-      extraInfo = `<div class="to-minutes"></div>`;
-    }
+    if (variable.type) {
+      if (variable.type === 6) {
+        extraInfo = `<div class="info-group">
+            <img src="images/info.png" class="info-icon">
+            <div class="tag">Machine-learning inspired reward, 100 points is equivalent to 1 day without rain.</div>
+          </div>`;
+        moreInfo = '<div class="small-screen-info">Machine-learning inspired reward, 100 points is equivalent to 1 day without rain.</div>'
+      } else if (variable.type === 2) {
+        extraInfo = `<input type="button" value="Set Based On Plant" class="plant-set-button" id="plant-set">`
+      } else if (variable.type === 3) {
+        extraInfo = `<div class="to-minutes"></div>`;
+      }
 
-    if (variable.type === 4) {
-      inputText = `<input type="text" value="${variable.default}" id="${variable.id}" class="input-variable city">`;
-    } else {
-      inputText = `<input type="button" value="-" class="button-variable">
-        <input type="text" value="${variable.default}" id="${variable.id}" class="input-variable">
-        <input type="button" value="+" class="button-variable">
-        ${extraInfo}`
-    };
-    
-    variablesText = `<div class="variable">
-      <h4 class="variable-name">${variable.name}</h4>
-      <div class="customize-variable">
-        <div class="variable-buttons">
-          ${inputText}
+      if (variable.type === 4) {
+        inputText = `<input type="text" value="${variable.default}" id="${variable.id}" class="input-variable city">`;
+      } else {
+        inputText = `<input type="button" value="-" class="button-variable">
+          <input type="text" value="${variable.default}" id="${variable.id}" class="input-variable">
+          <input type="button" value="+" class="button-variable">
+          ${extraInfo}`
+      };
+      
+      variablesText = `<div class="variable">
+        <h4 class="variable-name">${variable.name}</h4>
+        <div class="customize-variable">
+          <div class="variable-buttons">
+            ${inputText}
+          </div>
+          <p class="variable-description">${variable.description}</p>
+          ${moreInfo}
         </div>
-        <p class="variable-description">${variable.description}</p>
-        ${moreInfo}
-      </div>
-    </div>`
+      </div>`
+    } else {
+      let toggleOn = variable.default ? 'checked' : '';
+      variablesText = `<div class="weather-switch-container">
+          <h4 class="variable-name">${variable.name}</h4>
+          <label for="toggle-weather" class="weather-switch">
+            <input type="checkbox" id="toggle-weather" ${toggleOn}>
+            <span class="slider"></span>
+          </label>
+          <p>${variable.description}</p>
+        </div>`
+    }
 
     if (variable.type < 5) {
       document.querySelector('.simple-variables').innerHTML += variablesText;
@@ -203,9 +222,14 @@ export function generateVariables(toggleAdvanced) {
 
   const variableButton = document.querySelectorAll('.button-variable');
   const variablesValue = document.querySelectorAll('.input-variable');
+  const toggleWeather = document.querySelector('#toggle-weather');
 
   variableButton.forEach((button) => updateInput(button, 'click'));
   variablesValue.forEach((box) => updateInput(box, 'change'));
+  toggleWeather.addEventListener('change', () => {
+    variables[0].default = toggleWeather.checked;
+    store();
+  });
 
   if (toggleAdvanced) {
     document.querySelector('.simple-variables').innerHTML = '';
@@ -254,6 +278,10 @@ function store() {
       targetVariable.default = variableValue.value
     }
   });
+
+  if (document.querySelector('#toggle-weather')) {
+    variables[0].default = document.querySelector('#toggle-weather').checked;
+  }
   
   storeVariables();
 };
