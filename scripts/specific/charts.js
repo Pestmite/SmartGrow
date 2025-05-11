@@ -14,7 +14,7 @@ export function generateChart(savingData, labels, interval) {
 
   let finalSavingData = [];
   visibleSavingData.forEach((value) => {
-    finalSavingData.push(value * variables[6].default);
+    finalSavingData.push(value * variables[7].default);
   });
 
   visibleSavingData = finalSavingData;
@@ -101,10 +101,10 @@ export function findData(savingData, labels) {
 }
 
 export function updateChartTitle(savingData) {
-  let kilowatts = savingData[savingData.length - 1] * variables[6].default;
+  let kilowatts = savingData[savingData.length - 1] * variables[7].default;
   let dollarsSaved = 0.295 * kilowatts;
-  let plural = variables[6].default === 1 ? '' : 's';
-  document.querySelector('.watts-saved-js').innerHTML = `${kilowatts}kw &rarr; $${dollarsSaved.toFixed(2)} saved (${variables[6].default} pump${plural})`
+  let plural = variables[7].default === 1 ? '' : 's';
+  document.querySelector('.watts-saved-js').innerHTML = `${kilowatts}kw &rarr; $${dollarsSaved.toFixed(2)} saved (${variables[7].default} pump${plural})`
 }
 
 export let timeInterval = document.querySelector('.selected-interval').value;

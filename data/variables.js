@@ -243,7 +243,7 @@ export function setByPlant() {
   selectedPlant = JSON.parse(localStorage.getItem('selectedPlant'));
 
   document.getElementById('minMoisture').value = plantMoisture;
-  variables[1].default = plantMoisture;
+  variables[2].default = plantMoisture;
   localStorage.setItem('plantMoisture', JSON.stringify(plantMoisture));
   localStorage.setItem('selectedPlant', JSON.stringify(selectedPlant));
 
