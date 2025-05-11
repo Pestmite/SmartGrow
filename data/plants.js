@@ -44,10 +44,12 @@ function storePlant() {
     plantMoisture = parseInt((lowMoisture + highMoisture) / 2);
   }
 
-  let plantInterval = parseInt((interval.innerHTML).substring(0, 3));
+  if (interval) {
+    let plantInterval = parseInt((interval.innerHTML).substring(0, 3));
+    localStorage.setItem('plantMoisture', JSON.stringify(parseInt(plantInterval)));
+  }
 
   localStorage.setItem('plantMoisture', JSON.stringify(parseInt(plantMoisture)));
-  localStorage.setItem('plantMoisture', JSON.stringify(parseInt(plantInterval)));
   localStorage.setItem('selectedPlant', JSON.stringify(plantSelector.value));
   generateSelect();
 }
