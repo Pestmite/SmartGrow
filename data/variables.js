@@ -172,7 +172,7 @@ export function generateVariables(toggleAdvanced) {
     if (variable.type) {
       if (variable.type === 6) {
         extraInfo = `<div class="info-group">
-            <img src="images/info.png" class="info-icon">
+            <img src="images/info.png" class="info-icon" alt="info-icon">
             <div class="tag">Machine-learning inspired reward, 100 points is equivalent to 1 day without rain.</div>
           </div>`;
         moreInfo = '<div class="small-screen-info">Machine-learning inspired reward, 100 points is equivalent to 1 day without rain.</div>'

@@ -25,7 +25,7 @@ export function generateForecast(large=false) {
   let HTML = '';
   forecastDays.forEach((day) => {
     HTML += `<div class="daily-forecast ${forecast}">
-          <img src="images/weather/${day.image}.png">
+          <img src="images/weather/${day.image}.png" alt="${day.image}-icon">
           <div class="forecast-text">
             <h2><span class="extra-forecast">Monday - </span>18°C</h2>
             <p><span class="extra-forecast">20% chance of </span>2 mm</p>
