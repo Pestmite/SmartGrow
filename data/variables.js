@@ -138,6 +138,7 @@ export const defaultVariablesSections = [
 ];
 
 let plantMoisture = JSON.parse(localStorage.getItem('plantMoisture')) || 60;
+let sampleInterval = JSON.parse(localStorage.getItem('sampleInterval')) || 900;
 let selectedPlant = JSON.parse(localStorage.getItem('selectedPlant')) || 'Tomato';
 
 export let variables = JSON.parse(localStorage.getItem('variables')) || defaultVariablesSections;
@@ -241,13 +242,19 @@ export function generateVariables(toggleAdvanced) {
 export function setByPlant() {
   plantMoisture = JSON.parse(localStorage.getItem('plantMoisture'));
   selectedPlant = JSON.parse(localStorage.getItem('selectedPlant'));
+  sampleInterval = JSON.parse(localStorage.getItem('sampleInterval'));
 
   document.getElementById('minMoisture').value = plantMoisture;
+  document.getElementById('sampleInterval').value = sampleInterval;
   variables[2].default = plantMoisture;
+  variables[5].default = sampleInterval;
+
   localStorage.setItem('plantMoisture', JSON.stringify(plantMoisture));
   localStorage.setItem('selectedPlant', JSON.stringify(selectedPlant));
+  localStorage.setItem('sampleInterval', JSON.stringify(sampleInterval));
 
   storeVariables();
+  updateMinutes(document.getElementById('sampleInterval').parentElement)
 };
 
 function updateInput(item, eventListener) {

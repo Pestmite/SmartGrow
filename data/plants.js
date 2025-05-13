@@ -5,7 +5,7 @@ const wikiLink = document.querySelector('.wiki-link-js');
 const plantSelector = document.querySelector('#plants');
 
 if (plantSelector) {
-  plantSelector.addEventListener('change', () => updateData());
+  plantSelector.addEventListener('change', updateData);
 };
 
 export function generateSelect() {
@@ -35,6 +35,7 @@ export function updateData() {
 };
 
 function storePlant() {
+  const interval = document.querySelector('.interval-js');
   let plantMoisture = 0;
   if ((humidity.innerHTML).substring(1, 2) == '-') {
     plantMoisture = 10;
@@ -45,8 +46,9 @@ function storePlant() {
   }
 
   if (interval) {
-    let plantInterval = parseInt((interval.innerHTML).substring(0, 3));
-    localStorage.setItem('plantMoisture', JSON.stringify(parseInt(plantInterval)));
+    let plantInterval = parseInt((interval.innerHTML).substring(0, 3)) * 60;
+    localStorage.setItem('sampleInterval', JSON.stringify(parseInt(plantInterval)));
+    console.log(JSON.parse(localStorage.getItem('sampleInterval')));
   }
 
   localStorage.setItem('plantMoisture', JSON.stringify(parseInt(plantMoisture)));
