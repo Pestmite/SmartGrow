@@ -142,6 +142,7 @@ let sampleInterval = JSON.parse(localStorage.getItem('sampleInterval')) || 900;
 let selectedPlant = JSON.parse(localStorage.getItem('selectedPlant')) || 'Tomato';
 
 export let variables = JSON.parse(localStorage.getItem('variables')) || defaultVariablesSections;
+export const variableMap = Object.fromEntries(variables.map(v => [v.id, v]));
 
 export let defaultVariables = [];
 variables.forEach((variable) => {
@@ -228,7 +229,7 @@ export function generateVariables(toggleAdvanced) {
   variableButton.forEach((button) => updateInput(button, 'click'));
   variablesValue.forEach((box) => updateInput(box, 'change'));
   toggleWeather.addEventListener('change', () => {
-    variables[0].default = toggleWeather.checked;
+    variableMap['considerWeather'].default = toggleWeather.checked;
     store();
   });
 
@@ -246,8 +247,8 @@ export function setByPlant() {
 
   document.getElementById('minMoisture').value = plantMoisture;
   document.getElementById('sampleInterval').value = sampleInterval;
-  variables[2].default = plantMoisture;
-  variables[5].default = sampleInterval;
+  variableMap['minMoisture'].default = plantMoisture;
+  variableMap['sampleInterval'].default = sampleInterval;
 
   localStorage.setItem('plantMoisture', JSON.stringify(plantMoisture));
   localStorage.setItem('selectedPlant', JSON.stringify(selectedPlant));
@@ -287,7 +288,7 @@ function store() {
   });
 
   if (document.querySelector('#toggle-weather')) {
-    variables[0].default = document.querySelector('#toggle-weather').checked;
+    variableMap['considerWeather'].default = document.querySelector('#toggle-weather').checked;
   }
   
   storeVariables();

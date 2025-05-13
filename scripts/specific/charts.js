@@ -1,4 +1,4 @@
-import { variables } from "../../data/variables.js";
+import { variables, variableMap } from "../../data/variables.js";
 
 let newMoneyChart;
 
@@ -14,7 +14,7 @@ export function generateChart(savingData, labels, interval) {
 
   let finalSavingData = [];
   visibleSavingData.forEach((value) => {
-    finalSavingData.push(value * variables[7].default);
+    finalSavingData.push(value * variableMap['pumpCount'].default);
   });
 
   visibleSavingData = finalSavingData;
@@ -101,10 +101,10 @@ export function findData(savingData, labels) {
 }
 
 export function updateChartTitle(savingData) {
-  let kilowatts = savingData[savingData.length - 1] * variables[7].default;
+  let kilowatts = savingData[savingData.length - 1] * variableMap['pumpCount'].default;
   let dollarsSaved = 0.295 * kilowatts;
-  let plural = variables[7].default === 1 ? '' : 's';
-  document.querySelector('.watts-saved-js').innerHTML = `${kilowatts}kw &rarr; $${dollarsSaved.toFixed(2)} saved (${variables[7].default} pump${plural})`
+  let plural = variableMap['pumpCount'].default === 1 ? '' : 's';
+  document.querySelector('.watts-saved-js').innerHTML = `${kilowatts}kw &rarr; $${dollarsSaved.toFixed(2)} saved (${variableMap['pumpCount'].default} pump${plural})`
 }
 
 export let timeInterval = document.querySelector('.selected-interval').value;

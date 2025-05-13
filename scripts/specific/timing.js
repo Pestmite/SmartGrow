@@ -1,11 +1,11 @@
 import { updateMeters } from "../../data/variables.js";
 import { changeTime } from "./staging.js";
-import { defaultVariablesSections } from "../../data/variables.js";
+import { defaultVariablesSections, variableMap } from "../../data/variables.js";
 
 const variables = JSON.parse(localStorage.getItem('variables')) || defaultVariablesSections;
 const progressBar = document.querySelector('.progress-bar');
 
-let totalProgress = variables[5].default;
+let totalProgress = variableMap['sampleInterval'].default;
 let progress = JSON.parse(localStorage.getItem('progress')) || 0;
 let soilHumidity = JSON.parse(localStorage.getItem('soilHumidity')) || 40.58;
 
@@ -31,7 +31,7 @@ export function setProgress() {
 
   simulateSoil();
   if (progress >= totalProgress) {
-    if (soilHumidity <= variables[2].default) {
+    if (soilHumidity <= variableMap['minMoisture'].default) {
       resetProgress();
     }
 
@@ -56,7 +56,7 @@ export function resetProgress() {
 
   const debugTitle = document.querySelector('.debug-title');
   if (document.querySelector('.time-until-test') !== null) {
-    debugTitle.innerHTML = `WATERING FOR ${variables[4].default} SECONDS`;
+    debugTitle.innerHTML = `WATERING FOR ${variableMap['wateringTime'].default} SECONDS`;
     progressBar.style.width = `100%`;
   };
 
@@ -65,7 +65,7 @@ export function resetProgress() {
     if (debugTitle) {
       debugTitle.innerHTML = `Soil tested in: <span class="time-until-test">${totalProgress - progress}s</span>`;
     }
-  }, variables[4].default * 1000);
+  }, variableMap['wateringMap'].default * 1000);
 }
 
 function simulateSoil() {

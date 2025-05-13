@@ -48,7 +48,6 @@ function storePlant() {
   if (interval) {
     let plantInterval = parseInt((interval.innerHTML).substring(0, 3)) * 60;
     localStorage.setItem('sampleInterval', JSON.stringify(parseInt(plantInterval)));
-    console.log(JSON.parse(localStorage.getItem('sampleInterval')));
   }
 
   localStorage.setItem('plantMoisture', JSON.stringify(parseInt(plantMoisture)));
