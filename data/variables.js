@@ -2,7 +2,7 @@
 Type Guide:
   0. Switch
   1. Normal
-  2. Set based on plant
+  2. Set based on plant *DISCONTINUED
   3. To minutes
   4. No buttons
   5. Advance normal
@@ -28,7 +28,7 @@ export const defaultVariablesSections = [
     id: 'minMoisture',
     description: 'What is the minimum humidity percentage considered "dry soil"?',
     interval: 5,
-    type: 2,
+    type: 1,
     default: 40
   }, {
     name: 'Block Water Maximum',

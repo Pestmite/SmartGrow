@@ -24,9 +24,9 @@ select {
   display: block;
 }
 
-.data, .full-data {
+.data, .full-data, .plant-set-button {
   border: none;
-  margin: 12px 0px 12px 0px;
+  margin: 12px 0px;
   height: 18px;
   width: 200px;
   padding: 10px 12px;
@@ -54,6 +54,19 @@ select:focus {
 
 select:hover {
   cursor: pointer;
+}
+
+.plant-set-button {
+  height: 38px;
+  width: 240px;
+  font-size: 18px;
+  margin-top: 32px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.plant-set-button:hover {
+  background-color: rgb(199, 199, 199);
 }
 
 .description {

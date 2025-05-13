@@ -183,22 +183,6 @@
   outline: none;
 }
 
-.plant-set-button {
-  width: 192px;
-  border-radius: 10px;
-  border: none;
-  background-color: rgb(229, 229, 229);
-  padding: 6px 0px;
-  cursor: pointer;
-  font-size: 18px;
-  margin-left: 40px;
-  transition: background-color 0.15s;
-}
-
-.plant-set-button:hover {
-  background-color: rgb(199, 199, 199);
-}
-
 .city {
   width: 192px;
 }
