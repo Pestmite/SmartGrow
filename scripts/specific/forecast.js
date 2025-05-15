@@ -58,5 +58,13 @@ async function getDailyForecast() {
     weatherList.push(item.weather[0].icon);
   });
 
+  let temperature = 0;
+  for (let i = 0; i < temperatureList.length / 5; i++) {
+    for (let j = 0; j < 5; j++) {
+      temperature += forecast.list[j*i].main.temp;
+      console.log(temperature);
+    }
+  }
+
   console.log(weatherList);
 }
