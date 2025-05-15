@@ -1,4 +1,10 @@
-export function generateForecast(large=false) {
+import { variableMap } from "../../data/variables.js";
+
+const APIKey = '099e14cce42304e08ad466e59a36c706';
+const city = variableMap['location'].default;
+
+export function generateForecast(large = false) {
+  getDailyForecast();
   const forecastDays = [
     {
       image: 'cloudy',
@@ -36,4 +42,21 @@ export function generateForecast(large=false) {
   if (document.querySelector('.forecast-item-js')) {
     document.querySelector('.forecast-item-js').innerHTML = HTML;
   }
+}
+
+async function getDailyForecast() {
+  const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIKey}&units=metric`);
+  const forecast = await response.json();
+  let temperatureList = [];
+  let chanceList = [];
+  let precipList = [];
+  let weatherList = [];
+  forecast.list.forEach((item) => {
+    temperatureList.push(item.main.temp);
+    chanceList.push(item.pop);
+    precipList.push(item.rain?.['3h']);
+    weatherList.push(item.weather[0].icon);
+  });
+
+  console.log(weatherList);
 }
