@@ -58,13 +58,31 @@ async function getDailyForecast() {
     weatherList.push(item.weather[0].icon);
   });
 
-  let temperature = 0;
-  for (let i = 0; i < temperatureList.length / 5; i++) {
-    for (let j = 0; j < 5; j++) {
-      temperature += forecast.list[j*i].main.temp;
-      console.log(temperature);
-    }
-  }
+  let temperatureFinal = [];
+  let chanceFinal = [];
+  let iconFinal = [];
+  let precipFinal = [];
+  let forecastsPerDay = temperatureList.length / 5;
+  for (let i = 1; i <= temperatureList.length / forecastsPerDay; i++) {
 
-  console.log(weatherList);
+    let temperature = [];
+    let chance = [];
+    let icon;
+    let precip = [];
+    for (let j = i; j <= forecastsPerDay + i - 1; j++) {
+      let index = i * forecastsPerDay - forecastsPerDay + j - i;
+      temperature.push(forecast.list[index].main.temp);
+      chance.push(forecast.list[index].pop);
+      precip.push(forecast.list[index].rain?.['3h']);
+      if (j === 5) { icon = forecast.list[index].weather[0].icon };
+    }
+
+    temperatureFinal.push(Math.max(...temperature));
+    chanceFinal.push(Math.max(...chance));
+    iconFinal.push(icon);
+
+    let sum = 0;
+    precip.forEach(item => { sum = item !== undefined ? sum + item : sum });
+    precipFinal.push(Math.round(sum));
+  }
 }
