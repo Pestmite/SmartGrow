@@ -2,6 +2,22 @@
   grid-row: span 2;
   grid-column: span 1;
   overflow: scroll;
+  position: relative;
+}
+
+.forecast-item > h2 {
+  position: sticky;
+  top: 0px;
+  left: 10px;
+  right: 10px;
+  padding-top: 10px;
+  text-align: center;
+  background-color: white;
+  height: 80px;
+}
+
+.inner-forecast {
+  margin-top: -20px;
 }
 
 .daily-forecast {
@@ -59,6 +75,10 @@
   .forecast-item {
     overflow: visible;
     grid-column: span 1;
+  }
+
+  .forecast-item > h2 {
+    position: static;
   }
 }
 

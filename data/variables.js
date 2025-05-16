@@ -325,5 +325,7 @@ export function updateMeters(weatherScore = false) {
   document.querySelector('.humidity-meter').style.setProperty(('--percent'), soilHumidity);
   if (weatherScore) {
     document.querySelector('.weatherscore-meter').style.setProperty(('--percent'), weatherScore);
+  } else if (weatherScore === 0) {
+    document.querySelector('.weatherscore-meter').style.setProperty(('--percent'), 0);
   }
 }

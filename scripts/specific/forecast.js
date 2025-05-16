@@ -8,9 +8,11 @@ export async function generateForecast(large = false) {
   await getDailyForecast();
   let forecast = !large ? 'small-forecast' : 'large-forecast';
 
-  let HTML = `<h2>5-day Forecast (${variableMap['location'].default.toUpperCase()})</h2>`;
+  let outerHTML = `<h2>5-day Forecast (${variableMap['location'].default.toUpperCase()})</h2>
+                  <div class="inner-forecast"></div>`;
+  let innerHTML = '';
   forecastDays.forEach((day, index) => {
-    HTML += `<div class="daily-forecast ${forecast}">
+    innerHTML += `<div class="daily-forecast ${forecast}">
           <img src="https://openweathermap.org/img/wn/${day.icon.substring(0, 2)}d@2x.png" alt="${day.icon}-icon">
           <div class="forecast-text">
             <h2><span class="extra-forecast">${dayjs().add(index, 'd').format('dddd')} - </span>${day.temp}°C</h2>
@@ -20,7 +22,8 @@ export async function generateForecast(large = false) {
   });
 
   if (document.querySelector('.forecast-item-js')) {
-    document.querySelector('.forecast-item-js').innerHTML = HTML;
+    document.querySelector('.forecast-item-js').innerHTML = outerHTML;
+    document.querySelector('.inner-forecast').innerHTML = innerHTML;
   }
 
   const weatherScore = findWeatherScore();
