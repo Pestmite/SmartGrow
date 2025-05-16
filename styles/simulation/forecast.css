@@ -1,6 +1,7 @@
 .forecast-item {
   grid-row: span 2;
   grid-column: span 1;
+  overflow: scroll;
 }
 
 .daily-forecast {
@@ -30,7 +31,7 @@
 .daily-forecast p {
   font-size: 16px;
   margin: 0px;
-  color: grey
+  color: grey;
 }
 
 .small-forecast p {
@@ -38,7 +39,7 @@
   font-weight: 500;
 }
 
-@media (max-width: 1350px) {
+@media (max-width: 1250px) {
   .small-forecast img {
     display: none;
   }
@@ -54,14 +55,9 @@
   }
 }
 
-@media (max-width: 1000px) {
-  .large-forecast p {
-    font-size: 12px;
-  }
-}
-
 @media (max-width: 950px) {
   .forecast-item {
+    overflow: visible;
     grid-column: span 1;
   }
 }
