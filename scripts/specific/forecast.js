@@ -19,12 +19,12 @@ export async function generateForecast(large = false) {
 
   console.log(dayjs().format('ddd'));
 
-  let HTML = '';
+  let HTML = '<h2>5-day Forecast</h2>';
   forecastDays.forEach((day, index) => {
     HTML += `<div class="daily-forecast ${forecast}">
           <img src="https://openweathermap.org/img/wn/${day.icon}@2x.png" alt="${day.icon}-icon">
           <div class="forecast-text">
-            <h2><span class="extra-forecast">${dayjs().add(index, 'w').format('dddd')} - </span>${day.temp}°C</h2>
+            <h2><span class="extra-forecast">${dayjs().add(index, 'd').format('dddd')} - </span>${day.temp}°C</h2>
             <p><span class="extra-forecast">${day.chance*100}% chance of </span>${day.precip} mm</p>
           </div>
         </div>`

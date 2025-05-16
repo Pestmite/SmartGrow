@@ -13,9 +13,8 @@
 }
 
 .daily-forecast img {
-  height: 36px;
+  height: 64px;
   background-color: rgb(255, 255, 255);
-  padding: 8px;
   border-radius: 20px;
 }
 
@@ -52,6 +51,12 @@
 @media (max-width: 1100px) {
   .forecast-item:has(.small-forecast) {
     display: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .large-forecast p {
+    font-size: 12px;
   }
 }
 
