@@ -14,11 +14,6 @@
   box-shadow: 1px 0px 5px rgba(82, 82, 82, 0.294);
 }
 
-.nav-link {
-  text-decoration: none;
-  color: rgb(110,125,147);
-}
-
 .middle, .right {
   display: flex;
   justify-content: space-between;
@@ -26,6 +21,9 @@
 }
 
 .nav-link {
+  text-decoration: none;
+  color: rgb(110,125,147);
+  background-color: transparent;
   padding: 8px 12px;
   font-size: 16px;
   border-radius: 4px;

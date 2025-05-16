@@ -18,3 +18,7 @@ body.active {
   height: auto;
   padding: 88px 50px;
 }
+
+select {
+  -webkit-appearance: none;
+}
