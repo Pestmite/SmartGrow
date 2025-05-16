@@ -2,7 +2,7 @@
 
 Version 2 of the website created for my grade 9 Science Fair. 
 
-Original sprinkler system made by Charles-Henri Chaki and Sparsh Nishit Shah, website made by Charles-Henri Chaki
+Original sprinkler system made by Charlie Chaki and Sparsh Nishit Shah, website made by Charlie Chaki
 
 ## Project Overview
 
