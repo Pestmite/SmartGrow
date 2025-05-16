@@ -11,6 +11,13 @@ if (localStorage.getItem('savingData')) {
   labels = JSON.parse(localStorage.getItem('labels'));
 }
 
+function addLinks() {
+  document.querySelector('.about-project-item').addEventListener('click', () => { window.location = 'about.html' });
+  document.querySelector('.forecast-item').addEventListener('click', () => { window.location = 'simulation.html' });
+  document.querySelector('.plant-selector-item').addEventListener('click', () => { window.location = 'customize.html' });
+  document.querySelector('.update-time-item').addEventListener('click', () => { window.location = 'simulation.html' });
+}
+
 // resetChart(savingData, labels);
 selectPage('Overview');
 updateStageText('PowerDown');
@@ -20,6 +27,7 @@ generateSelect();
 updateChartTitle(savingData);
 updateData();
 intervalOption(savingData, labels, timeInterval);
+addLinks();
 
 setInterval(() => {
   findData(savingData, labels);

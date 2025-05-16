@@ -9,7 +9,6 @@ export async function generateForecast(large = false) {
   let forecast = !large ? 'small-forecast' : 'large-forecast';
 
   let HTML = `<h2>5-day Forecast (${variableMap['location'].default.toUpperCase()})</h2>`;
-  console.log(forecastDays);
   forecastDays.forEach((day, index) => {
     HTML += `<div class="daily-forecast ${forecast}">
           <img src="https://openweathermap.org/img/wn/${day.icon.substring(0, 2)}d@2x.png" alt="${day.icon}-icon">
