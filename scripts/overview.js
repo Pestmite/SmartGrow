@@ -14,7 +14,6 @@ if (localStorage.getItem('savingData')) {
 function addLinks() {
   document.querySelector('.about-project-item').addEventListener('click', () => { window.location = 'about.html' });
   document.querySelector('.forecast-item').addEventListener('click', () => { window.location = 'simulation.html' });
-  document.querySelector('.plant-selector-item').addEventListener('click', () => { window.location = 'customize.html' });
   document.querySelector('.update-time-item').addEventListener('click', () => { window.location = 'simulation.html' });
 }
 
