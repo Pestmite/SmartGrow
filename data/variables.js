@@ -320,7 +320,10 @@ export function generateVariablesValues() {
   });
 };
 
-export function updateMeters() {
+export function updateMeters(weatherScore = false) {
   let soilHumidity = Math.round(JSON.parse(localStorage.getItem('soilHumidity')));
   document.querySelector('.humidity-meter').style.setProperty(('--percent'), soilHumidity);
+  if (weatherScore) {
+    document.querySelector('.weatherscore-meter').style.setProperty(('--percent'), weatherScore);
+  }
 }

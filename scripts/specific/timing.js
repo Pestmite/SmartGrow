@@ -65,7 +65,7 @@ export function resetProgress() {
     if (debugTitle) {
       debugTitle.innerHTML = `Soil tested in: <span class="time-until-test">${totalProgress - progress}s</span>`;
     }
-  }, variableMap['wateringMap'].default * 1000);
+  }, variableMap['wateringTime'].default * 1000);
 }
 
 function simulateSoil() {

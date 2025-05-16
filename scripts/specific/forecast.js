@@ -1,4 +1,4 @@
-import { variableMap } from "../../data/variables.js";
+import { updateMeters, variableMap } from "../../data/variables.js";
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
 const APIKey = '099e14cce42304e08ad466e59a36c706';
@@ -8,21 +8,12 @@ const forecastDays = [{}, {}, {}, {}, {}];
 
 export async function generateForecast(large = false) {
   await getDailyForecast();
-  let forecast;
-  let temp;
-  if (!large) {
-    forecast = 'small-forecast';
-    temp = `18°C`
-  } else {
-    forecast = 'large-forecast';
-  }
-
-  console.log(dayjs().format('ddd'));
+  let forecast = !large ? 'small-forecast' : 'large-forecast';
 
   let HTML = '<h2>5-day Forecast</h2>';
   forecastDays.forEach((day, index) => {
     HTML += `<div class="daily-forecast ${forecast}">
-          <img src="https://openweathermap.org/img/wn/${day.icon}@2x.png" alt="${day.icon}-icon">
+          <img src="https://openweathermap.org/img/wn/${day.icon.substring(0, 2)}d@2x.png" alt="${day.icon}-icon">
           <div class="forecast-text">
             <h2><span class="extra-forecast">${dayjs().add(index, 'd').format('dddd')} - </span>${day.temp}°C</h2>
             <p><span class="extra-forecast">${day.chance*100}% chance of </span>${day.precip} mm</p>
@@ -33,6 +24,9 @@ export async function generateForecast(large = false) {
   if (document.querySelector('.forecast-item-js')) {
     document.querySelector('.forecast-item-js').innerHTML = HTML;
   }
+
+  const weatherScore = findWeatherScore();
+  updateWeatherScore(weatherScore);
 }
 
 async function getDailyForecast() {
@@ -83,4 +77,34 @@ async function getDailyForecast() {
     day['chance'] = chanceFinal[index];
     day['icon'] = iconFinal[index];
   });
+}
+
+function findWeatherScore() {
+  let weatherScore = 0;
+  forecastDays.forEach(day => {
+    if ((day.chance*100) >= variableMap['chanceConsidered'].default) {
+      if (day.precip >= variableMap['moderateRain'].default) {
+        weatherScore += variableMap['largeBoost'].default;
+      } else if (day.precip >= variableMap['lightRain'].default) {
+        weatherScore += variableMap['mediumBoost'].default;
+      } else if (day.precip >= 0) {
+        weatherScore += variableMap['smallBoost'].default;
+      }
+    }
+  });
+
+  return weatherScore;
+}
+
+function updateWeatherScore(weatherScore) {
+  if (document.querySelector('.weatherscore')) {
+    document.querySelector('.weatherscore').innerHTML = weatherScore;
+    console.log('hullo!');
+  }
+
+  console.log('.humidity-meter');
+  if (document.querySelector('.weatherscore-meter')) {
+    console.log('hullo!');
+    updateMeters(weatherScore);
+  }
 }
