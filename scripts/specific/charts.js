@@ -1,4 +1,4 @@
-import { variables, variableMap } from "../../data/variables.js";
+import { variableMap } from "../../data/variables.js";
 
 let newMoneyChart;
 

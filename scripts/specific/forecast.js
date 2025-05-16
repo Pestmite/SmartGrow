@@ -1,24 +1,13 @@
 import { variableMap } from "../../data/variables.js";
+import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
 const APIKey = '099e14cce42304e08ad466e59a36c706';
 const city = variableMap['location'].default;
 
-export function generateForecast(large = false) {
-  getDailyForecast();
-  const forecastDays = [
-    {
-      image: 'cloudy',
-    }, {
-      image: 'sun',
-    }, {
-      image: 'sun',
-    }, {
-      image: 'rain',
-    }, {
-      image: 'thunder',
-    }
-  ];
+const forecastDays = [{}, {}, {}, {}, {}];
 
+export async function generateForecast(large = false) {
+  await getDailyForecast();
   let forecast;
   let temp;
   if (!large) {
@@ -28,13 +17,15 @@ export function generateForecast(large = false) {
     forecast = 'large-forecast';
   }
 
+  console.log(dayjs().format('ddd'));
+
   let HTML = '';
-  forecastDays.forEach((day) => {
+  forecastDays.forEach((day, index) => {
     HTML += `<div class="daily-forecast ${forecast}">
-          <img src="images/weather/${day.image}.png" alt="${day.image}-icon">
+          <img src="https://openweathermap.org/img/wn/${day.icon}@2x.png" alt="${day.icon}-icon">
           <div class="forecast-text">
-            <h2><span class="extra-forecast">Monday - </span>18°C</h2>
-            <p><span class="extra-forecast">20% chance of </span>2 mm</p>
+            <h2><span class="extra-forecast">${dayjs().add(index, 'w').format('dddd')} - </span>${day.temp}°C</h2>
+            <p><span class="extra-forecast">${day.chance*100}% chance of </span>${day.precip} mm</p>
           </div>
         </div>`
   });
@@ -77,7 +68,7 @@ async function getDailyForecast() {
       if (j === 5) { icon = forecast.list[index].weather[0].icon };
     }
 
-    temperatureFinal.push(Math.max(...temperature));
+    temperatureFinal.push(Math.round(Math.max(...temperature)));
     chanceFinal.push(Math.max(...chance));
     iconFinal.push(icon);
 
@@ -85,4 +76,11 @@ async function getDailyForecast() {
     precip.forEach(item => { sum = item !== undefined ? sum + item : sum });
     precipFinal.push(Math.round(sum));
   }
+
+  forecastDays.forEach((day, index) => {
+    day['temp'] = temperatureFinal[index];
+    day['precip'] = precipFinal[index];
+    day['chance'] = chanceFinal[index];
+    day['icon'] = iconFinal[index];
+  });
 }
