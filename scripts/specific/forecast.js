@@ -1,8 +1,6 @@
-import { updateMeters, variableMap } from "../../data/variables.js";
+import { generateVariables, updateMeters, variableMap } from "../../data/variables.js";
+import { updateMinutes } from "../../data/variables.js";
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
-
-const APIKey = '099e14cce42304e08ad466e59a36c706';
-const city = variableMap['location'].default;
 
 const forecastDays = [{}, {}, {}, {}, {}];
 
@@ -10,7 +8,8 @@ export async function generateForecast(large = false) {
   await getDailyForecast();
   let forecast = !large ? 'small-forecast' : 'large-forecast';
 
-  let HTML = '<h2>5-day Forecast</h2>';
+  let HTML = `<h2>5-day Forecast (${variableMap['location'].default.toUpperCase()})</h2>`;
+  console.log(forecastDays);
   forecastDays.forEach((day, index) => {
     HTML += `<div class="daily-forecast ${forecast}">
           <img src="https://openweathermap.org/img/wn/${day.icon.substring(0, 2)}d@2x.png" alt="${day.icon}-icon">
@@ -29,8 +28,19 @@ export async function generateForecast(large = false) {
   updateWeatherScore(weatherScore);
 }
 
-async function getDailyForecast() {
-  const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIKey}&units=metric`);
+export async function getDailyForecast() {
+  const APIKey = '099e14cce42304e08ad466e59a36c706';
+  let city = variableMap['location'].default;
+  let response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIKey}&units=metric`);
+  if (!response.ok) {
+    city = 'Montreal';
+    variableMap['location'].default = 'Montreal';
+    if (document.querySelector('.variable-item')) {
+      document.querySelectorAll('.input-variable').forEach((box) => updateMinutes(box.parentElement));
+      document.getElementById('location').value = 'Montreal';
+    }
+    response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIKey}&units=metric`);
+  }
   const forecast = await response.json();
   let temperatureList = [];
   let chanceList = [];
@@ -99,12 +109,9 @@ function findWeatherScore() {
 function updateWeatherScore(weatherScore) {
   if (document.querySelector('.weatherscore')) {
     document.querySelector('.weatherscore').innerHTML = weatherScore;
-    console.log('hullo!');
   }
 
-  console.log('.humidity-meter');
   if (document.querySelector('.weatherscore-meter')) {
-    console.log('hullo!');
     updateMeters(weatherScore);
   }
 }

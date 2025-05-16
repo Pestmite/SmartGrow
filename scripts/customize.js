@@ -1,11 +1,11 @@
 import { generateSelect, updateData } from "../data/plants.js";
 import { generateVariables, updateMinutes, generateVariablesValues, setByPlant, resetVariables } from "../data/variables.js";
 import { selectPage } from "./general.js";
-import { generateForecast } from "./specific/forecast.js";
+import { generateForecast, getDailyForecast } from "./specific/forecast.js";
 
 const simpleToggle = document.querySelector('.simple-toggle');
 const advancedToggle = document.querySelector('.advanced-toggle');
-let advanced = false
+let advanced = false;
 
 simpleToggle.addEventListener('click', (event) => toggleAdvanced(event, true))
 advancedToggle.addEventListener('click', (event) => toggleAdvanced(event, false))
@@ -34,5 +34,6 @@ document.querySelectorAll('.input-variable').forEach((box) => updateMinutes(box.
 const resetButton = document.querySelector('.reset-variables');
 const plantButton = document.querySelector('.plant-set-button');
 
+document.getElementById('location').addEventListener('change', getDailyForecast)
 plantButton.addEventListener('click', setByPlant);
 resetButton.addEventListener('click', () => resetVariables(advanced));
