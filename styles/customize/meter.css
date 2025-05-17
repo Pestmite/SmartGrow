@@ -44,7 +44,7 @@
 }
 
 .weatherscore-meter::before {
-  background: conic-gradient(from 0.75turn at 50% 100%, rgb(0, 154, 0) calc(var(--percent) * 1% / 6), rgb(236,240,244) 0);
+  background: conic-gradient(from 0.75turn at 50% 100%, rgb(0, 154, 0) calc(var(--percent) * 1% / 16), rgb(236,240,244) 0);
 }
 
 .meter-item::after {

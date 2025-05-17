@@ -33,7 +33,7 @@ export const defaultVariablesSections = [
   }, {
     name: 'Block Water Maximum',
     id: 'blockWater',
-    description: 'What is the maximum number of days your plants shouldn\'t be watered for? This overrides the weather forecast algorithm and prevents your plants from being underwatered.',
+    description: 'What should be the limit of days that your plants dont get watered for? This overrides the weather forecast algorithm and prevents your plants from being underwatered.',
     interval: 1,
     type: 1,
     default: 3
