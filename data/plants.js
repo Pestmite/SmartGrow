@@ -330,7 +330,7 @@ export const plants = [
     link: 'https://en.wikipedia.org/wiki/Potentilla'
   },
   {
-    value: 'Rasberry',
+    value: 'Raspberry',
     humidity: '21-60%',
     sampleInterval: '60 min',
     description: 'Raspberries (Rubus idaeus) are perennial shrubs native to Europe and Asia. Known for their sweet, red, or black fruit, they thrive in well-drained, fertile soil and full sun. Raspberries are commonly grown in gardens or orchards, with some varieties requiring trellising for support. They need regular watering, pruning, and care to prevent pests and diseases.',

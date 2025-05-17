@@ -61,7 +61,7 @@ export const defaultVariablesSections = [
   }, {
     name: 'Number of Sprinklers',
     id: 'pumpCount',
-    description: 'How many sprinkler\'s does the system use? Used by website to calculate electricity saved.',
+    description: 'How many sprinklers does the system use? Used by website to calculate electricity saved.',
     interval: 1,
     type: 1,
     default: 1
