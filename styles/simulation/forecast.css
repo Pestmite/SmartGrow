@@ -13,7 +13,9 @@
   padding-top: 10px;
   text-align: center;
   background-color: var(--background);
-  height: 80px;
+  height: auto;
+  margin-top: 0px;
+  padding: 10px 0px 20px 0px;
 }
 
 .inner-forecast {
