@@ -24,4 +24,4 @@ Won Gina Cody School of Engineering and Computer Science Award for Outstanding A
 
 ## Credits
 
-Icons by Freepik, openWeatherMap and HJ studios
+Icons by Freepik and openWeatherMap

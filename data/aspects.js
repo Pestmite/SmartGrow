@@ -31,7 +31,8 @@ export function generateAspects(section) {
 
   aspects[section].forEach((element) => {
     HTML += `<div class="features-group">
-      <img src="images/check-list.png" alt="checkbox">
+      <img src="images/check-list.png" alt="checkbox" class="light-mode-checkbox">
+      <img src="images/check-list-dark.png" alt="checkbox" class="dark-mode-checkbox">
       <p>${element}</p>
     </div>`
   });

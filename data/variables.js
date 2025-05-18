@@ -174,7 +174,7 @@ export function generateVariables(toggleAdvanced) {
     if (variable.type) {
       if (variable.type === 6) {
         extraInfo = `<div class="info-group">
-            <img src="images/info.png" class="info-icon" alt="info-icon">
+            <div class="info-icon">?</div>
             <div class="tag">Machine-learning inspired reward, 100 points is equivalent to 1 day without rain.</div>
           </div>`;
         moreInfo = '<div class="small-screen-info">Machine-learning inspired reward, 100 points is equivalent to 1 day without rain.</div>'
@@ -204,11 +204,10 @@ export function generateVariables(toggleAdvanced) {
         </div>
       </div>`
     } else {
-      let toggleOn = variable.default ? 'checked' : '';
       variablesText = `<div class="weather-switch-container">
           <h4 class="variable-name">${variable.name}</h4>
           <label for="toggle-weather" class="weather-switch">
-            <input type="checkbox" id="toggle-weather" ${toggleOn}>
+            <input type="checkbox" id="toggle-weather" ${variable.default ? 'checked' : ''}>
             <span class="slider"></span>
           </label>
           <p>${variable.description}</p>

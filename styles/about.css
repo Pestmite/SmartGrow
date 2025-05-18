@@ -82,9 +82,13 @@
   font-size: 16px;
 }
 
-.features-group img {
+.light-mode-checkbox, .dark-mode-checkbox {
   height: 28px;
   margin-right: 10px;
+}
+
+.dark-mode-checkbox {
+  display: none;
 }
 
 .features-group p {
@@ -158,5 +162,15 @@
 
   .toggle-sections .nav-link {
     padding: 6px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .light-mode-checkbox {
+    display: none;
+  }
+
+  .dark-mode-checkbox {
+    display: block;
   }
 }

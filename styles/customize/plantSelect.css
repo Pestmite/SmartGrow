@@ -74,10 +74,6 @@ select:hover {
   text-indent: 15px;
 }
 
-.small-screen-info {
-  display: none;
-}
-
 .wiki-link {
   color: var(--highlight);
 }
@@ -140,15 +136,5 @@ select:hover {
     height: 36px;
     width: 20vw;
     min-width: 154px;
-  }
-}
-
-@media (max-width: 400px) {
-  .info-group {
-    display: none;
-  }
-
-  .small-screen-info {
-    display: block;
   }
 }
