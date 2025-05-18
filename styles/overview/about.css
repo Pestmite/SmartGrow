@@ -24,7 +24,7 @@
 }
 
 .about-project-item h2 {
-  border-bottom: 2px solid rgb(229, 229, 229);
+  border-bottom: 2px solid var(--foreground-dark);
   width: 230px;
 }
 

@@ -16,7 +16,7 @@ export async function generateForecast(large = false) {
           <img src="https://openweathermap.org/img/wn/${day.icon.substring(0, 2)}d@2x.png" alt="${day.icon}-icon">
           <div class="forecast-text">
             <h2><span class="extra-forecast">${dayjs().add(index, 'd').format('dddd')} - </span>${day.temp}°C</h2>
-            <p><span class="extra-forecast">${day.chance*100}% chance of </span>${day.precip} mm</p>
+            <p><span class="extra-forecast">${Math.round(day.chance*100)}% chance of </span>${day.precip} mm</p>
           </div>
         </div>`
   });

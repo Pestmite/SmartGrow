@@ -12,7 +12,7 @@
 .toggle-variables {
   border-radius: 4px;
   padding: 6px;
-  background-color: rgb(236, 240, 244);
+  background-color: var(--foreground);
   width: 172px;
   display: flex;
   justify-content: space-between;
@@ -23,7 +23,7 @@
   width: 200px;
   border-radius: 10px;
   border: none;
-  background-color: rgb(229, 229, 229);
+  background-color: var(--foreground);
   padding: 12px 0px;
   cursor: pointer;
   font-size: 18px;
@@ -31,7 +31,7 @@
 }
 
 .reset-variables:hover {
-  background-color: rgb(255, 114, 114);
+  background-color: var(--danger);
 }
 
 .weather-switch-container {
@@ -55,7 +55,7 @@
 .slider {
   position: absolute;
   inset: 0px;
-  background-color: rgb(229,229,229);
+  background-color: var(--foreground);
   transition: 0.3s;
   border-radius: 36px;
 }
@@ -67,7 +67,7 @@
   height: 32px;
   left: 5px;
   bottom: 5px;
-  background-color: white;
+  background-color: var(--background);
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.086);
   transition: 0.3s;
   border-radius: 50%;
@@ -78,7 +78,7 @@
 }
 
 .weather-switch input:checked + .slider {
-  background-color: rgb(0, 154, 0);
+  background-color: var(--highlight);
 }
 
 .weather-switch input:checked + .slider::before {
@@ -92,8 +92,8 @@
 }
 
 .selected-variables {
-  background-color: rgb(0, 154, 0);
-  color: rgb(255, 255, 255);
+  background-color: var(--highlight);
+  color: var(--highlight-text);
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.086);
 }
 
@@ -108,7 +108,7 @@
   width: 30px;
   height: 30px;
   font-size: 18px;
-  background-color: rgb(229, 229, 229);
+  background-color: var(--foreground);
   transition: background-color 0.2s;
 }
 
@@ -119,7 +119,7 @@
 
 .button-variable:hover {
   cursor: pointer;
-  background-color: rgb(199, 199, 199);
+  background-color: var(--foreground-hover);
 }
 
 .variable-buttons .input-variable {
@@ -152,8 +152,8 @@
 .info-group .tag {
   position: absolute;
   width: 184px;
-  background-color: rgb(76, 76, 76);
-  color: white;
+  background-color: var(--tag);
+  color: var(--text);
   padding: 8px;
   border-radius: 6px;
   bottom: 40px;
@@ -170,7 +170,7 @@
 
 .input-variable {
   border-radius: 12px;
-  background-color: rgb(229, 229, 229);
+  background-color: var(--foreground);
   padding: 0px 10px;
   height: 30px;
   width: 100px;
@@ -189,7 +189,7 @@
 
 .to-minutes {
   border-radius: 12px;
-  background-color: rgb(229, 229, 229);
+  background-color: var(--foreground);
   padding: 0px 10px;
   height: 30px;
   width: 100px;
@@ -206,11 +206,11 @@
   }
 
   .water-button:hover {
-    background-color: rgb(0, 188, 0);
+    background-color: var(--highlight-hover);
   }
 
   .plant-set-button:hover, .button-variable:hover {
-    background-color: rgb(229, 229, 229);
+    background-color: var(--foreground-hover);
   }
 }
 

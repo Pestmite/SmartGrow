@@ -30,7 +30,6 @@
   justify-content: space-between;
   margin-top: -30px;
   width: 60%;
-  color: rgb(110,125,147);
   font-size: 14px;
 }
 
@@ -45,8 +44,8 @@
 }
 
 .selected-interval {
-  border: 2px solid rgb(27,114,232);
-  color: rgb(27,114,232);
+  border: 2px solid var(--highlight);
+  color: var(--highlight);
 }
 
 @media (max-width: 750px) {

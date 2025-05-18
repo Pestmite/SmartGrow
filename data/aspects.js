@@ -10,7 +10,7 @@ export const aspects = {
     'Website made with HTML, CSS, and JavaScript',
     'Fully 3D-printed protective casing for sprinkler unit'
   ], impact: [
-    '150+ hours of development',
+    'Qualified for Montreal Regional Science Fair',
     'Won Concordia Award for Outstanding Achievement in ECE',
     'Under 20$/unit to make in bulk',
     'Received positive feedback and advice',

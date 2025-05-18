@@ -1,0 +1,16 @@
+:root {
+  --background: white;
+  --foreground: rgb(236,240,244);
+  --foreground-contrast: rgb(244, 244, 244);
+  --foreground-dark: rgb(207, 214, 220);
+  --foreground-hover: rgb(208, 212, 215);
+  --highlight: rgb(0, 154, 0);
+  --highlight-hover: rgb(0, 188, 0);
+  --secondary-highlight: rgb(130, 213, 20);
+  --text: black;
+  --secondary-text: rgb(97, 97, 97);
+  --tertiary-text: rgb(110, 125, 147);
+  --highlight-text: white;
+  --tag: rgb(76, 76, 76);
+  --danger: rgb(255, 114, 114);
+}

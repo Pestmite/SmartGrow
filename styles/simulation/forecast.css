@@ -12,7 +12,7 @@
   right: 10px;
   padding-top: 10px;
   text-align: center;
-  background-color: white;
+  background-color: var(--background);
   height: 80px;
 }
 
@@ -23,7 +23,7 @@
 .daily-forecast {
   display: flex;
   align-items: center;
-  background-color: rgb(239, 241, 243);
+  background-color: var(--foreground);
   padding: 10px 20px;
   border-radius: 8px;
   margin-bottom: 20px;
@@ -31,7 +31,7 @@
 
 .daily-forecast img {
   height: 64px;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--background);
   border-radius: 20px;
 }
 
@@ -47,7 +47,7 @@
 .daily-forecast p {
   font-size: 16px;
   margin: 0px;
-  color: grey;
+  color: var(--tertiary-text);
 }
 
 .small-forecast p {

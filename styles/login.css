@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: center;
   border-radius: 12px;
-  background-color:rgb(244, 244, 244);
+  background-color: var(--foreground-contrast);
   box-shadow: 0px 0px 3px rgba(63, 63, 63, 0.53);
   width: 100%;
   max-width: 360px;
@@ -45,15 +45,15 @@ input {
   margin: 10px 0px;
   height: 16px;
   border-radius: 6px;
-  border: solid 1px rgb(87, 87, 87);
+  border: solid 1px var(--tertiary-text);
   padding: 8px;
 }
 
 button {
   margin-top: 12px;
   border: none;
-  background-color: rgb(0, 154, 0);
-  color: white;
+  background-color: var(--highlight);
+  color: var(--highlight-text);
   height: 42px;
   border-radius: 12px;
   font-size: 22px;
@@ -61,7 +61,7 @@ button {
 }
 
 button:hover {
-  background-color: rgb(25, 185, 25);
+  background-color: var(--highlight-hover);
   cursor: pointer;
 }
 
