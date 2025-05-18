@@ -8,6 +8,7 @@ body {
   overflow-x: hidden;
   overscroll-behavior: none;
   background-color: var(--foreground);
+  color: var(--text);
 }
 
 body.active {
@@ -24,4 +25,6 @@ body.active {
 select {
   -webkit-appearance: none;
   appearance: none;
+  color: var(--text);
+  background-color: var(--background);
 }

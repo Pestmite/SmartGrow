@@ -14,3 +14,18 @@
   --tag: rgb(76, 76, 76);
   --danger: rgb(255, 114, 114);
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: rgb(33, 33, 33);
+    --foreground: rgb(15, 15, 15);
+    --foreground-contrast: rgb(33, 33, 33);
+    --foreground-hover: rgb(55, 55, 55);
+    --highlight: rgb(0, 114, 0);
+    --highlight-hover: rgb(0, 155, 0);
+    --text: rgb(241, 241, 241);
+    --tertiary-text: rgb(156, 168, 185);
+    --highlight-text: rgb(241, 241, 241);
+    --danger: rgb(155, 28, 28);
+  }
+}

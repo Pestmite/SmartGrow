@@ -61,7 +61,7 @@
   font-weight: 400;
   margin-top: 0px;
   font-size: 16px;
-  color: rgb(58, 66, 82);
+  color: var(--tertiary-text);
 }
  
 .toggle-sections {

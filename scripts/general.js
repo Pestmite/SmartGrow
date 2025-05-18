@@ -77,6 +77,8 @@ document.addEventListener('click', (event) => {
 
 changeTime();
 
+console.log(window)
+
 setInterval(() => {
   if (!window.watering) {
     setProgress();

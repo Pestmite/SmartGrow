@@ -24,6 +24,7 @@
   border-radius: 10px;
   border: none;
   background-color: var(--foreground);
+  color: var(--text);
   padding: 12px 0px;
   cursor: pointer;
   font-size: 18px;
@@ -83,6 +84,7 @@
 
 .weather-switch input:checked + .slider::before {
   transform: translateX(46px);
+  background-color: var(--text);
 }
 
 .variable-section {
@@ -109,6 +111,7 @@
   height: 30px;
   font-size: 18px;
   background-color: var(--foreground);
+  color: var(--text);
   transition: background-color 0.2s;
 }
 
@@ -177,6 +180,7 @@
   border: none;
   font-size: 16px;
   text-align: center;
+  color: var(--text);
 }
 
 .input-variable:focus-visible {

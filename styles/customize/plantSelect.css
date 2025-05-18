@@ -32,6 +32,7 @@ select {
   padding: 10px 12px;
   border-radius: 12px;
   background-color: var(--foreground);
+  color: var(--text);
   font-weight: 600;
 }
 

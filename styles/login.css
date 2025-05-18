@@ -70,6 +70,10 @@ button:hover {
   align-content: center;
 }
 
+.redirect a {
+  color: var(--highlight);
+}
+
 @media (max-width: 480px) {
   .login-box, .signup-box {
     background-color: transparent;
