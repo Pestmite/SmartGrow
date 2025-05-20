@@ -1,9 +1,10 @@
-import { generateVariables, updateMeters, variableMap } from "../../data/variables.js";
+import { updateMeters, variableMap } from "../../data/variables.js";
 import { updateMinutes } from "../../data/variables.js";
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
 const forecastDays = [{}, {}, {}, {}, {}];
 
+// Generate DOM elements for daily forecast
 export async function generateForecast(large = false) {
   await getDailyForecast();
   let forecast = !large ? 'small-forecast' : 'large-forecast';
@@ -30,6 +31,7 @@ export async function generateForecast(large = false) {
   updateWeatherScore(weatherScore);
 }
 
+// Use openWeatherMap to get daily forecast
 export async function getDailyForecast() {
   const APIKey = '099e14cce42304e08ad466e59a36c706';
   let city = variableMap['location'].default;
@@ -91,6 +93,7 @@ export async function getDailyForecast() {
   });
 }
 
+// Use forecast to find weatherScore
 function findWeatherScore() {
   let weatherScore = 0;
   forecastDays.forEach(day => {
@@ -108,6 +111,7 @@ function findWeatherScore() {
   return weatherScore;
 }
 
+// Update all instances of weatherScore
 function updateWeatherScore(weatherScore) {
   if (document.querySelector('.weatherscore')) {
     document.querySelector('.weatherscore').innerHTML = weatherScore;

@@ -2,6 +2,7 @@ import { setProgress } from "./specific/timing.js";
 import { setStage, updateStageText } from "./specific/staging.js";
 import { changeTime } from "./specific/staging.js";
 
+// Create header with DOM
 function generateHeader() {
   document.querySelector('.header').innerHTML = `<div class="menu-header">
       <div class="middle">
@@ -41,6 +42,7 @@ function generateHeader() {
     <div class="overlay"></div>`
 }
 
+// Highlight selected page in header and side menu
 export function selectPage(page) {
   generateHeader();
 
@@ -79,6 +81,7 @@ changeTime();
 
 console.log(window)
 
+// Create simulation loop
 setInterval(() => {
   if (!window.watering) {
     setProgress();

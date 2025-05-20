@@ -11,6 +11,7 @@ if (localStorage.getItem('savingData')) {
   labels = JSON.parse(localStorage.getItem('labels'));
 }
 
+// Make overview items links to other pages
 function addLinks() {
   document.querySelector('.about-project-item').addEventListener('click', () => { window.location = 'about.html' });
   document.querySelector('.forecast-item').addEventListener('click', () => { window.location = 'simulation.html' });

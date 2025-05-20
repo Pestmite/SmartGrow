@@ -1,5 +1,6 @@
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
+// Update all instances of the current stage
 export function updateStageText(stage) {
   const nextStage = stage === 'PowerDown' ? 'Print Debug Menu' : 'PowerDown';
   if (document.querySelector('.update-time-item h2') || document.querySelector('.staging-item h2')) {
@@ -8,6 +9,7 @@ export function updateStageText(stage) {
   }
 }
 
+// Update all instances of the time
 export function changeTime() {
   let lastWateredData = JSON.parse(localStorage.getItem('firstTime')) || dayjs().subtract(20, 'm').format('h:mm A');
   if (document.querySelector('.update-time-item h2') || document.querySelector('.staging-item h2')) {
@@ -16,6 +18,7 @@ export function changeTime() {
   }
 }
 
+// Change current stage
 export function setStage(stage) {
   if (document.querySelector('.stage-group')) {
     if (document.querySelector('.current-stage')) {

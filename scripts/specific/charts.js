@@ -2,11 +2,13 @@ import { variableMap } from "../../data/variables.js";
 
 let newMoneyChart;
 
+// Store chart info in local storage
 function storeChart(savingData, labels) {
   localStorage.setItem('savingData', JSON.stringify(savingData));
   localStorage.setItem('labels', JSON.stringify(labels));
 }
 
+// Create chart DOM element with chart.js
 export function generateChart(savingData, labels, interval) {
   let visibleSavingData = interval ? savingData.slice(0 - interval) : savingData;
   let visibleLabels = interval ? labels.slice(0 - interval) : labels;
@@ -89,6 +91,7 @@ export function generateChart(savingData, labels, interval) {
   });
 }
 
+// Generate next chart value
 export function findData(savingData, labels) {
   let randomNumber = Math.random();
   while (randomNumber < 0.4 || randomNumber > 0.608) {
@@ -100,6 +103,7 @@ export function findData(savingData, labels) {
   storeChart(savingData, labels)
 }
 
+// Change chart info in the DOM
 export function updateChartTitle(savingData) {
   let kilowatts = savingData[savingData.length - 1] * variableMap['pumpCount'].default;
   let dollarsSaved = 0.295 * kilowatts;
@@ -109,6 +113,7 @@ export function updateChartTitle(savingData) {
 
 export let timeInterval = document.querySelector('.selected-interval').value;
 
+// Add event listener to each interval option
 export function intervalOption(savingData, labels, timeInterval) {
   const intervalOptions = document.querySelectorAll('.interval-option');
   intervalOptions.forEach((option) => {
@@ -119,6 +124,7 @@ export function intervalOption(savingData, labels, timeInterval) {
   });
 }
 
+// Clear chart data
 export function resetChart(savingData, labels) {
   savingData.length = 0;
   labels.length = 0;
@@ -129,6 +135,7 @@ export function resetChart(savingData, labels) {
   storeChart(savingData, labels);
 }
 
+// Swap selected time interval for chart in DOM
 function selectIntervalOption(selectedOption) {
   document.querySelector('.selected-interval').classList.remove('selected-interval');
   selectedOption.classList.add('selected-interval');

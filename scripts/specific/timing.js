@@ -1,14 +1,14 @@
 import { updateMeters } from "../../data/variables.js";
 import { changeTime } from "./staging.js";
-import { defaultVariablesSections, variableMap } from "../../data/variables.js";
+import { variableMap } from "../../data/variables.js";
 
-const variables = JSON.parse(localStorage.getItem('variables')) || defaultVariablesSections;
 const progressBar = document.querySelector('.progress-bar');
 
 let totalProgress = variableMap['sampleInterval'].default;
 let progress = JSON.parse(localStorage.getItem('progress')) || 0;
 let soilHumidity = JSON.parse(localStorage.getItem('soilHumidity')) || 40.58;
 
+// Update progress bar
 export function setProgress() {
   if (progressBar) {
     let percentage = (progress / totalProgress * 100).toFixed();
@@ -47,6 +47,7 @@ export function setProgress() {
   localStorage.setItem('progress', JSON.stringify(progress));
 }
 
+// Update asssociated data
 export function resetProgress() {
   progress = 0;
   soilHumidity = 82.43;
@@ -68,6 +69,7 @@ export function resetProgress() {
   }, variableMap['wateringTime'].default * 1000);
 }
 
+// Reset progress bar and associated data
 function simulateSoil() {
   if (document.querySelector('.soil-humidity')) {
     document.querySelector('.soil-humidity').innerHTML = soilHumidity;
