@@ -3,6 +3,7 @@
   grid-column: span 1;
   overflow: scroll;
   position: relative;
+  padding-top: 0px;
 }
 
 .forecast-item > h2 {
@@ -15,7 +16,7 @@
   background-color: var(--background);
   height: auto;
   margin-top: 0px;
-  padding: 10px 0px 20px 0px;
+  padding: 30px 0px 20px 0px;
 }
 
 .inner-forecast {
