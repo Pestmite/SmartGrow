@@ -50,7 +50,7 @@ export function selectPage(page) {
     document.querySelector('.menu').classList.toggle('active');
     document.querySelector('.off-screen-menu').classList.toggle('active');
     document.querySelector('body').classList.toggle('active');
-    document.querySelector('.overlay').classList.toggle('active')
+    document.querySelector('.overlay').classList.toggle('active');
   });
     
   document.querySelectorAll('.nav-link').forEach((link) => {
@@ -78,8 +78,6 @@ document.addEventListener('click', (event) => {
 });
 
 changeTime();
-
-console.log(window)
 
 // Create simulation loop
 setInterval(() => {

@@ -42,7 +42,11 @@ export function generateChart(savingData, labels, interval) {
     gradient.addColorStop(1, 'rgba(76, 175, 80, 0)');
     borderColor = 'rgb(39, 161, 14)';
   } else {
-    gradient.addColorStop(0, 'rgba(244, 67, 54, 0.5)');
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      gradient.addColorStop(0, 'rgba(175, 63, 55, 0.5)');
+    } else {
+      gradient.addColorStop(0, 'rgba(244, 67, 54, 0.5)');
+    }
     gradient.addColorStop(1, 'rgba(244, 67, 54, 0)');
     borderColor = 'rgb(234,67,53)';
   }

@@ -35,4 +35,9 @@ setInterval(() => {
   updateChartTitle(savingData);
 }, 1000);
 
-window.addEventListener('resize', () => generateChart(savingData, labels, timeInterval))
+window.addEventListener('resize', () => {
+  generateChart(savingData, labels, timeInterval);
+  if (window.innerWidth >= 590 && document.querySelector('body').classList.contains('active')) {
+      document.querySelector('body').classList.remove('active');
+    }
+});
