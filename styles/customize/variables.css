@@ -84,7 +84,7 @@
 
 .weather-switch input:checked + .slider::before {
   transform: translateX(46px);
-  background-color: var(--text);
+  background-color: var(--highlight-text);
 }
 
 .variable-section {
