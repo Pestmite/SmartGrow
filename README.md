@@ -6,7 +6,7 @@ Original sprinkler system made by Charlie Chaki and Sparsh Nishit Shah, website 
 
 ## Project Overview
 
-The SmartGrow irrigation system is a fully automatic sprinkler that uses a fusion of forecast and soil moisture data utilizing a custom machine-learning inspired algorithm. With over 15 user-tunable variables to customize, the sprinkler ensures flexibility and sustainability. It features a fully 3D-printed structure and can be produced in bulk for $20.
+The SmartGrow irrigation system is a fully automatic sprinkler that uses a fusion of forecast and soil moisture data utilizing a custom machine-learning inspired algorithm. With over 15 user-tunable variables to customize, the sprinkler ensures flexibility and sustainability. It features a fully 3D-printed structure and can be produced in bulk for $20. Additionally, the components of the sprinkler can be easily replaced with more powerful or accurate alternatives, and these components can just as easily be scaled.
 
 Everything in the website is functional apart from:
 - The buy button
