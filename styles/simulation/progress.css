@@ -37,6 +37,14 @@
   cursor: pointer;
 }
 
+.saturated-button {
+  background-color: var(--saturated);
+}
+
+.saturated-button:hover {
+  background-color: var(--saturated);
+}
+
 .debug-section {
   margin-bottom: 18px;
 }

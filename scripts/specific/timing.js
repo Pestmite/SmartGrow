@@ -54,6 +54,8 @@ export function resetProgress() {
   changeTime();
   setProgress();
   window.watering = true;
+  document.querySelector('.water-button').value = 'WATERING';
+  document.querySelector('.water-button').classList.add('saturated-button');
 
   const debugTitle = document.querySelector('.debug-title');
   if (document.querySelector('.time-until-test') !== null) {
@@ -62,6 +64,9 @@ export function resetProgress() {
   };
 
   setTimeout(() => {
+    document.querySelector('.water-button').value = 'Water them now';
+    document.querySelector('.water-button').classList.remove('saturated-button');
+
     window.watering = false;
     if (debugTitle) {
       debugTitle.innerHTML = `Soil tested in: <span class="time-until-test">${totalProgress - progress}s</span>`;
